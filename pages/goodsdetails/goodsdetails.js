@@ -18,10 +18,8 @@ Page({
     iscommentting: false,
     commentContent: "",
     isowner: false,
-
     commentarr: '',
-
-
+    myUserid:0,
     showModal: false
   },
   onLoad: function(options) {
@@ -42,7 +40,8 @@ Page({
       success: res => {
         that.data.collect.checked = res.data
         that.setData({
-          collect: that.data.collect
+          collect: that.data.collect,
+          myUserid:app.globalData.userid
         })
       }
     })
@@ -240,6 +239,33 @@ Page({
     })
   },
 
+
+  toDeleteComments(e){
+    var that = this
+    wx.showModal({
+      title: '',
+      content: '确定要删除此留言吗？',
+      success:res=>{
+        if(res.confirm){
+          wx.request({
+            url: app.globalData.url+'/comments/delete',
+            data:{
+              id:e.currentTarget.dataset.id
+            },
+            success:res=>{
+              if(res.data){
+              wx.showToast({
+                title: '删除成功！',
+                duration:1000
+              })
+              that.getComments();
+              }
+            }
+          })
+        }
+      }
+    })
+  },
 
 
   //弹窗
