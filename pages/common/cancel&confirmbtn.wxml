@@ -1,0 +1,4 @@
+<view class ="topBtn">
+  <button class="cancelBtn" bindtap="cancel">取消</button>
+  <button class ="confirmBtn" bindtap="confirm" style="background-color:{{maincolor}}">确认</button>
+</view>

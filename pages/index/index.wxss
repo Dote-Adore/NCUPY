@@ -1,0 +1,47 @@
+@import"/pages/common/showgoods.wxss";
+
+.search-class{
+  height:60px;
+}
+.searchBar{
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  margin: 10px 5% 10px 5%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #EDEDED;
+  color: #555555;
+  border-radius: 4px
+
+}
+
+.mainContain{
+  background-color: #777777;
+  position: relative
+}
+.category-item{
+  float: left;
+  margin: 9px;
+  margin-bottom: 20px;
+}
+.category-class{
+  overflow: hidden;
+  zoom: 1;
+  margin: 0,5px,5px,10px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding: 0 0 20px 0;
+}
+.category-images{
+  width: 80%;
+  height: 80%;
+  margin: 10%;
+  background-color: white;
+  border-radius:10px;
+}
+.category-name{
+  text-align: center;
+  color: white;
+  font-size: 13px;
+}

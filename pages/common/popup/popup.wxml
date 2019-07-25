@@ -1,0 +1,12 @@
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">管理</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <view class="popupbtns" bindtap="toEditManage">编辑</view>
+      <view class="popupbtns" bindtap="toDeleteManage">删除</view>
+      <view class="popupbtns"bindtap="toCancelManage">取消</view>
+    </view>
+  </view>
+</view>

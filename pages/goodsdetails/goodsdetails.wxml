@@ -1,0 +1,61 @@
+
+<scroll-view class="details-class" scroll-y:true style="width:{{WDWidth}}px">
+  <view class="detailsInfo">
+    <view class="price">￥{{productInfo.price}}</view>
+    <view class='tags'>{{productInfo.commontags}}</view>
+    <view class="information">{{productInfo.introduction}}</view>
+    <view class="images-class">
+    <block wx:for="{{goodsimagesurl}}" wx:key="{{index}}">
+      <image class="goodsimage" src="{{item}}" mode="widthFix" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+    </block>
+    </view>
+  </view>
+
+  <!-- 发布者信息 -->
+  <view class = "sellerInformation">
+    <image class = 'sellerHeadPortrait' src='{{productInfo.avatar}}' mode="aspectFill"> </image>
+    <view class='sellerName'> {{productInfo.username}}</view>
+    <view class='publishTime'>发布于{{productInfo.publishtime}}</view>
+  </view>
+
+<!-- 评论 -->
+  <view class="comments">
+    <view class="commentsTitle">留言</view>
+    <view class="divLine"></view>
+    <!-- 如果评论为空 -->
+    <view wx:if="{{!commentarr[0]}}"class='defaultComments'>没有评论哦，快来抢个沙发吧！</view>
+      <block wx:for="{{commentarr}}" wx:key="{{item.id}}">
+       <view class="comment-class">
+        <image class ='commentAvatar' src="{{item.useravatar}}" mode="aspectFill"/>
+        <view class="commentuser">{{item.username}}</view>
+        <view class="commentvalue">{{item.content}}</view>
+        <view class="commenttime">{{item.time}}</view>
+        <view class="divLine"></view>
+      </view>
+      </block>
+  </view>
+
+
+</scroll-view>
+
+
+
+<view wx:if="{{!iscommentting}}" class="bottom-bar">
+  <checkbox-group class='checkbox-group' bindchange="checkboxChange" >
+    <label>
+      <checkbox  value="{{collect.name}}" checked="{{collect.checked}}">{{collect.value}}</checkbox>
+    </label>
+  </checkbox-group>
+  <view class='bottomBtns' id='commentBtn' bindtap="comments">评论</view>
+  <view class='bottomBtns'id='purchaseBtn' wx:if='{{!isowner}}'>联系TA</view>
+  <view class='bottomBtns' id='manageBtn' wx:if='{{isowner}}' bindtap="toManage">管理</view>
+</view>
+
+
+
+<view wx:if="{{iscommentting}}" class="bottom-bar">
+  <input value="{{commentContent}}" class="comment-input" bindblur="loseFocus" confirm-type="send" bindinput="inputComments"  bindconfirm="sendComments" style="width:{{WDWidth-110}}px"/>
+  <view class="bottomBtns" id="sendBtn" bindtap="sendComments" > 发送</view>
+</view>
+
+<include src="/pages/common/popup/popup.wxml"/>

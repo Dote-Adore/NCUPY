@@ -1,0 +1,30 @@
+ <button  wx:if="{{!hasUserInfo && canIUse}}"  open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+<view class='userinfo' style="background-color:{{maincolor}}">
+  <view class ='nickname' bindtap="toUserHome">{{userInfoInWechat.nickName}}</view>
+  <text class = 'area'>{{areaArr[userInfoInDB.area]}}</text>
+  <text wx:if='{{userInfoInDB.area===null}}' class = 'area'>你还没有填写地区哦~</text>
+  <view class="pricenum" bindtap="toUserHome" decode="{{true}}" >哇哦！您已经在这里赚了{{sellingTotalPrice}}元></view>
+  <image src='{{userInfoInWechat.avatarUrl}}'bindtap="toUserHome" mode ='aspectFill' class="avatar"></image>
+  <view class='follow-follower'>
+    <view class='userInfoBtn'>
+      <view class='followTitle'>关注</view>
+      <view class= 'num'>{{followNum}}</view>
+    </view>
+    <view class='userInfoBtn'>
+      <view class='followerTitle'>粉丝</view>
+      <view class= 'num'>{{followerNum}}</view>
+    </view>
+  </view>
+  <view class='editBtn'  bindtap="toEditUserInfo">
+    编辑个人资料
+  </view>
+</view>
+
+<view class='menu-class'>
+  <block wx:for='{{menu}}' wx:key = "{{index}}">
+    <view class='menuItem' data-idx='{{index}}'bindtap='toInfo'>
+      <view class='menuTitle' data-idx='{{index}}'>{{item.name}}</view>
+      <view class='menuNum' data-idx='{{index}}'>{{item.value}} ></view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,30 @@
+.cancelBtn{
+  position: absolute;
+  left: 20px;
+  float:left;
+  width: 80px;
+  height: 35px;
+  line-height: 35px;
+  margin: 10px;
+  background-color: #ffffff;
+  border-width: 0;
+}
+.confirmBtn{
+  position: absolute;
+  right: 20px;
+  float:right;
+  width: 80px;
+  height: 35px;
+  line-height: 35px;
+  margin: 10px;
+  background: #1C86EE;
+  color: white;
+}
+.topBtn{
+  overflow: hidden;
+  zoom: 1;
+  height: 100px;
+  width: 100%;
+  bottom: 20px;
+  position:fixed; 
+}

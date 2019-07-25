@@ -1,0 +1,24 @@
+
+<view class="CommonTags">
+  <view class="TagTitle">常用标签</view>
+  <checkbox-group bindchange="checkboxChange" class="checkbox-group">
+    <label class="checkbox" wx:key="{{item.id}}" wx:for="{{items}}">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+  </checkbox-group>
+</view>
+
+<view class="divLine"></view>
+
+<view class="CommonTags">
+  <view class="TagTitle">分类</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{categories}}">
+    <view class="picker">
+      {{categories[index]}}
+    </view>
+  </picker>
+</view>
+
+<view class="divLine"></view>
+
+<include src="/pages/common/cancel&confirmbtn.wxml"/>

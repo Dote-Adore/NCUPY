@@ -1,0 +1,4 @@
+<view class>
+<image src='{{userInfo.avatarUrl}}' mode ='aspectFill' class="avatar"></image>
+
+</view>

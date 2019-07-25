@@ -1,0 +1,38 @@
+<view wx:if="{{productInfo.length>0}}" class='product-class-left'>
+  <block wx:for='{{productInfo}}'  wx:key="{item.proid}">
+    <view wx:if='{{index%2===0}}'   class='product-overview' >
+      <view bindtap="toDetails" data-productdata="{{item}}">
+        <image class="product-image" src="{{item.mainimgsrc}}" mode="aspectFill" lazy-load="true" style="height:{{WDWidth/2}}px"></image>
+        <view class="product-Info">{{item.introduction}}</view>
+        <view class="price-Info">￥{{item.price}}</view>
+        <view class="user-Info">
+          <image src="{{item.avatar}}" mode="aspectFit" azy-load="true" class='avatar'/>
+          <view>{{item.username}}</view>
+          <view style="color:darkgrey;font-size:11px">发布于{{item.publishtime}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{productInfo.length>0}}" class='product-class-right'>
+  <block wx:for='{{productInfo}}'  wx:key="{item.proid}">
+    <view wx:if='{{index%2===1}}'   class='product-overview'>
+      <view bindtap="toDetails" data-productdata="{{item}}">
+        <image class="product-image" src="{{item.mainimgsrc}}" mode="aspectFill" lazy-load="true" style="height:{{WDWidth/2}}px"></image>
+        <view class="product-Info">{{item.introduction}}</view>
+        <view class="price-Info">￥{{item.price}}</view>
+        <view class="user-Info">
+          <image src="{{item.avatar}}" mode="aspectFit" azy-load="true" class='avatar'/>
+          <view>{{item.username}}</view>
+          <view style="color:darkgrey;font-size:11px">发布于{{item.publishtime}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view wx:if="{{productInfo.length==0}}">
+  <view>暂时没有数据，下拉刷新后重试吧！</view>
+</view>
+
+<include src="/pages/common/pulluploading/pulluploading.wxml"/>

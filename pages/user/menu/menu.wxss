@@ -1,0 +1,58 @@
+.mainContainer{
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  box-shadow:0px 5px 7px 5px #eeeeee;
+
+}
+.goodsImg{
+  margin-right: 15px;
+  height: 80px;
+  width: 80px;
+  float: left;
+}
+
+.price{
+  color: red;
+    margin: 10px;
+}
+.successIcon{
+  height: 17px;
+  width: 17px;
+  transform: translate(0,15%)
+
+}
+.info{
+  font-size: 14px;
+  color: darkgray;
+  margin-bottom: 12px;
+}
+.btns{
+  padding: 7px;
+  overflow: auto;
+  zoom: 1;
+  border-width: 1px 0 0 0 ;
+  border-style: solid;
+  border-color: #EDEDED;
+}
+.Btn{
+  margin: 0 10px 0 10px;
+  font-size: 15px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border: 1px;
+  border-style: solid;
+  border-color: darkgray;
+  float: right;
+}
+
+
+
+/* 没有数据的时候 */
+.nodata{
+  text-align: center;
+  margin-top: 120px;
+  font-size: 18px;
+}

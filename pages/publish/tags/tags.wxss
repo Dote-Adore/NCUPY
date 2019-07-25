@@ -1,0 +1,31 @@
+@import"/pages/common/cancel&confirmbtn.wxss";
+.divLine{
+  margin: auto;
+  background: #E0E3DA;
+  width: 95%;
+  height: 1px;
+}
+.CommonTags
+{
+  padding: 20px;
+}
+.TagTitle{
+  font-size: 20px;
+  font-weight: lighter;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  color: #999999;
+}
+.checkbox{
+  margin: 10px;
+}
+.checkbox-group{
+  height: 40px;
+  margin: 10px;
+  font-size: 17px;
+}
+.picker{
+  height: 40px;
+  margin: 10px;
+  font-size: 17px;
+}

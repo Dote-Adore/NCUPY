@@ -1,0 +1,167 @@
+@import"/pages/common/popup/popup.wxss";
+.details-class{
+  /*padding: 10px 10px 80px 10px;*/
+  background:#EDEDED;
+}
+.detailsInfo{
+  padding: 10px;
+  background: #ffffff;
+}
+.price{
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border-width: 0 0 1px 0;
+  border-color: #EDEDED;
+  border-style: solid;
+  padding: 0 0 10px 0;
+  width: 100px;
+}
+.tags{
+  font-weight: bold;
+}
+.information{
+  font: 20px;
+  line-height: 30px;
+  margin: 10px 0 10px 0;
+}
+.goodsimage{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* 底部按钮 */
+.bottom-bar{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 60px;
+  opacity: 0.97;
+  background-color: white;
+}
+.checkbox-group{
+  float: left;
+  line-height: 40px;
+  margin: 10px;
+  width: 70px;
+  height: 40px;
+}
+.bottomBtns{
+  line-height: 40px;
+  margin: 10px 20px 10px 0;
+  color: white;
+  text-align: center;
+   width: 80px;
+  float: right;
+}
+#commentBtn{
+  float:left;
+  color:black;
+} 
+#purchaseBtn{
+    background-color: #FF4500;
+}
+#manageBtn{
+  color:black;
+}
+
+/* 发布者板块 */
+.sellerHeadPortrait{
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+  float: left;
+  margin: 0 10px 0 0
+}
+.sellerInformation{
+  padding: 10px;
+  overflow: hidden;
+  zoom: 1;
+  margin: 15px 0 15px 0;
+  background-color: white;
+}
+.sellerName{
+  width: 100%;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.publishTime{
+  width: 100%;
+  margin:10px 0 0 0;
+  font-size:14px;
+  color: #a3a3a3; 
+}
+
+/* 评论板块 */
+.comments{
+  padding: 10px 10px 10px 10px;
+  margin: 0 0 80px 0;
+  background-color: white;
+}
+.comment-class{
+  padding: 10px;
+}
+.defaultComments{
+  margin: auto;
+  padding: 50px;
+  text-align: center;
+}
+.commentAvatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin:0 10px 0 0;
+  float: left;
+}
+.commentuser{
+  color: #666666;
+  font-size: 15px;
+  margin-bottom: 5px;
+
+}
+.commentvalue{
+  margin: 0 0 5px 40px;
+
+}
+.commenttime{
+  font-size: 12px;
+  margin: 0 0 15px 50px;
+  color: #888888;
+}
+.commentsTitle{
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+
+}
+
+
+
+/* 发表评论 */
+.comment-input{
+  float:left;
+  height: 40px;
+  background-color: #EDEDED;
+  line-height: 40px;
+  margin: 10px;
+  padding: 0 10px 0 10px;
+}
+#sendBtn{
+  position: absolute;  
+  background-color: #FF7F24;
+  width: 60px;
+  float: right;
+  font-size: 15px;
+  margin: 12px 10px 12px 10px;
+  height: 36px;
+  line-height: 36px;
+  right: 0px;
+
+}
+
+
+.divLine{
+  margin: auto;
+  background: #E0E3DA;
+  height: 1px;
+}

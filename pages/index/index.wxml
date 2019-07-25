@@ -1,0 +1,15 @@
+<view class="search-class"style="background-color:{{maincolor}}">
+<view class="searchBar" > 
+  <navigator url="/pages/search/search">搜索宝贝</navigator>
+</view>
+</view>
+<view class="category-class" style="background-color:{{maincolor}}">
+  <block wx:for="{{categories}}" wx:key="index">
+    <view  class = "category-item" style="width:{{WDWidth/4-20}}px;height:{{WDWidth/4-20}}px">
+      <view class="category-images" data-idx="{{index}}" bindtap="toCategory"></view>
+      <view class="category-name">{{categories[index]}}</view>
+    </view>
+  </block>
+</view>
+<include src="/pages/common/showgoods.wxml"/>
+

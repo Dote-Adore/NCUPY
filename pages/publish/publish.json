@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "发布闲置",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh":false
+}
