@@ -31,8 +31,4 @@
   </block>
 </view>
 
-<view wx:if="{{productInfo.length==0}}">
-  <view>暂时没有数据，下拉刷新后重试吧！</view>
-</view>
-
 <include src="/pages/common/pulluploading/pulluploading.wxml"/>

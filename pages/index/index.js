@@ -27,6 +27,9 @@ Page({
     }
   },
   getGoods(){
+    wx.showLoading({
+      title: '玩命加载中',
+    })
     var that = this;
     wx.request({
       url: getApp().globalData.url+'/publish/getpublishdetails',
@@ -38,6 +41,7 @@ Page({
          productInfo:res.data,
          page:0
        });
+       wx.hideLoading();
        wx.stopPullDownRefresh();
        wx.showToast({
          title: '刷新成功！',
@@ -68,7 +72,6 @@ Page({
     }
   })
   },
-
 
 
     onReachBottom: function () {

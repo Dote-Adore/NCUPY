@@ -1,5 +1,7 @@
 {
+  "usingComponents": {},
   "navigationBarTitleText":"搜索结果",
   "navigationBarTextStyle": "black",
-  "navigationBarBackgroundColor": "#FFFFFF"
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "enablePullDownRefresh": false
 }

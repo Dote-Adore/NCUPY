@@ -87,6 +87,7 @@ Page({
   },
   toComments(e){
   },
+  
   toDetails(e){//进入详情界面
   console.log(e);
     var data = e.currentTarget.dataset

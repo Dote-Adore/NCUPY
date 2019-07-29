@@ -1,0 +1,6 @@
+@import"/pages/common/showgoods.wxss";
+.noResult{
+  width: 80%;
+  margin: auto;
+  font-size: 17px;
+}

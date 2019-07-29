@@ -50,12 +50,26 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "pages/user/editUserInfo/editUserInfo",
 					"pathName": "pages/user/editUserInfo/editUserInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "searchresult",
+					"pathName": "pages/search/searchresult/searchresult",
 					"scene": null
 				}
 			]

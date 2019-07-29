@@ -1,6 +1,6 @@
 <view>
 <view class = "search">
-  <input class="searchBar" placeholder="搜索宝贝" bindinput="searchinput" confirm-type="search" bindconfirm="confirmsearch"/>
+  <input class="searchBar" placeholder="搜索宝贝" bindinput="searchinput" maxlength="20" confirm-type="search" bindconfirm="confirmsearch"/>
   <cover-view class="btn" bindtap="confirmsearch">搜索</cover-view>
 </view>
 </view>
