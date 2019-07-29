@@ -15,15 +15,22 @@
   border-color: #EDEDED;
   border-style: solid;
   padding: 0 0 10px 0;
-  width: 100px;
 }
 .tags{
-  font-weight: bold;
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 3px;
+  background-color: #FF4500;
+  width: 60px;
+  color: white;
+  text-align: center;
+  margin: 10px 15px 0 0;
 }
 .information{
   font: 20px;
   line-height: 30px;
-  margin: 10px 0 10px 0;
+  margin: 40px 0 10px 0;
 }
 .goodsimage{
   width: 100%;

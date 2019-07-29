@@ -20,13 +20,15 @@ Page({
     isowner: false,
     commentarr: '',
     myUserid:0,
-    showModal: false
+    showModal: false,
+    tagsArray:[]
   },
   onLoad: function(options) {
     this.getPrePageinfoData();
     this.getImagesUrl();
     this.isCollected();
     this.getComments();
+    this.toTagArray()
   },
   isCollected() { //是否被收藏
     let that = this
@@ -46,8 +48,6 @@ Page({
       }
     })
   },
-
-
   getPrePageinfoData() { //得到上一个页面发来的数据
     var that = this;
     var productInfoData;
@@ -80,6 +80,16 @@ Page({
   },
 
 
+  toTagArray(){
+     var data = this.data.productInfo.commontags
+
+     data = data.replace(/"/g,'');
+     data = data.replace("[",'');
+    data = data.replace("]", '');
+    this.setData({
+      tagsArray : data.split(",")
+    })    
+  },
   handleImagePreview(e) {
     console.log(e.target.dataset.idx);
     const idx = e.target.dataset.idx;
