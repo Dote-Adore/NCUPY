@@ -1,5 +1,5 @@
 const app = getApp();
-var common = require('../../pages/common/login.js')
+const login = require('../../pages/common/login.js')
 Page({
 
   data: {
@@ -104,10 +104,14 @@ Page({
     })
   },
   startPublish(){ //发布信息
+  if(app.globalData.userInfo===''){
+    login.authorization();
+    return;
+  }
     console.log(this.data.tagarray)
     if(app.globalData.userid===0)
     {
-      common.login()
+      login.login()
     } else if (this.data.price === '' || this.data.price === 0){
       wx.showToast({
         title: '请输入你想卖出的价格哦~',

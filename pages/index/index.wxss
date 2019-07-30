@@ -24,6 +24,7 @@
   float: left;
   margin: 9px;
   margin-bottom: 20px;
+  text-align: center;
 }
 .category-class{
   overflow: hidden;
@@ -34,9 +35,9 @@
   padding: 0 0 20px 0;
 }
 .category-images{
-  width: 80%;
-  height: 80%;
-  margin: 10%;
+  width: 60%;
+  height: 60%;
+  margin: 20% 20% 10% 20%;
   background-color: white;
   border-radius:10px;
 }
@@ -44,4 +45,5 @@
   text-align: center;
   color: white;
   font-size: 13px;
+  width: 100%
 }

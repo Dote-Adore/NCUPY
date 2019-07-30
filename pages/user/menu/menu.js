@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     var that = this;
     var beforedata;
     const eventChannel = this.getOpenerEventChannel();
@@ -89,7 +90,7 @@ Page({
   },
   
   toDetails(e){//进入详情界面
-  console.log(e);
+    console.log(e);
     var data = e.currentTarget.dataset
     wx.navigateTo({
       url: '../../goodsdetails/goodsdetails',
@@ -136,5 +137,12 @@ Page({
       })
     }
   },
-  
+  toEdit(e){
+    wx.navigateTo({
+      url: '/pages/publish/edit/edit',
+      success: function (res) {
+        res.eventChannel.emit('acceptDataFromOpenerPage', e.currentTarget.dataset.info)
+      }
+    })
+  }
 })

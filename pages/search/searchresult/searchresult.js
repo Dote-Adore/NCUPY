@@ -1,5 +1,6 @@
 const app = getApp();
-var pullup = require('../../../pages/common/pulluploading/pulluploading.js')
+var pullup = require('../../../pages/common/pulluploading/pulluploading.js');
+var login = require('../../../pages/common/login.js')
 Page({
 
   /**
@@ -48,6 +49,10 @@ Page({
     })
   },
   toDetails(e) {
+    if (app.globalData.userInfo === '') {
+      login.authorization();
+      return;
+    }
     var data = e.currentTarget.dataset;
     console.log(e);
     wx.navigateTo({

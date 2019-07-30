@@ -15,6 +15,9 @@ Page({
   },
   onLoad(){
     this.getGoods();
+    if (app.globalData.userid === 0) {
+      login.login();
+    }
     
   },
   onPullDownRefresh(){
@@ -22,9 +25,6 @@ Page({
     this.getGoods();
   },
   onShow(){
-    if (app.globalData.userid===0) {
-      login.login();
-    }
   },
   getGoods(){
     wx.showLoading({
@@ -63,6 +63,10 @@ Page({
     })
   },
   toDetails(e){
+    if(app.globalData.userInfo===''){
+      login.authorization();
+      return;
+    }
     var data = e.currentTarget.dataset;
     console.log(e);
     wx.navigateTo({

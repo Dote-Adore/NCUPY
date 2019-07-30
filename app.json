@@ -13,7 +13,8 @@
       "pages/goodsdetails/goodsdetails",
       "pages/userHome/userHome",
       "pages/common/authorization/authorization",
-      "pages/user/editUserInfo/editUserInfo"
+      "pages/user/editUserInfo/editUserInfo",
+      "pages/publish/edit/edit"
 
 
   ],

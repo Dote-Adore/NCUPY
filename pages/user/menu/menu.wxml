@@ -12,7 +12,7 @@
   </view>
     <view class="btns">
       <view wx:if="{{basicData.name==='已卖出'}}" class="Btn" data-publishid="{{item.publishid}}" bindtap="toComments">查看评价</view>
-      <view wx:if="{{basicData.name==='发布中'}}" class="Btn" data-publishid="{{item.publishid}}" bindtap="{{toeidt}}">编辑</view>
+      <view wx:if="{{basicData.name==='发布中'}}" class="Btn" data-info="{{item}}" bindtap="toEdit">编辑</view>
       <checkbox-group wx:if="{{basicData.name==='我的收藏'}}" class='Btn' bindchange="checkboxChange" data-publishid='{{item.id}}'>
         <label>
           <checkbox  value="{{collect.name}}" checked="{{collect.checked}}">{{collect.value}}</checkbox>
