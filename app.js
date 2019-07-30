@@ -12,6 +12,8 @@ App({
       const res = wx.getSystemInfoSync()
       this.globalData.windowHeight = res.windowHeight;
       this.globalData.windowWidth = res.windowWidth;
+      this.globalData.height =res.safeArea.height;
+      this.globalData.top = res.safeArea.top;
       console.log(res);
     } catch (e) {
 
@@ -26,6 +28,8 @@ App({
     openid:"",
     windowHeight:"null",
     windowWidth:"null",
+    height:null,
+    top:null,
     maincolor:'#00688b',
     userid:0,
     url:"https://www.ncutradingplatform.top:8443/NCUTradingPlatform",

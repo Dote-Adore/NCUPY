@@ -1,55 +1,14 @@
-<scroll-view class="details-class" scroll-y:true style="width:{{WDWidth}}px">
-  <view class="detailsInfo">
-    <view class="price">￥{{productInfo.price}}</view>
-    <block  wx:for='{{tagsArray}}'  wx:key="{{index}}">
-     <view wx:if="{{tagsArray[0]}}" class='tags'>{{item}}</view>
-    </block>
-    <view class="information">{{productInfo.introduction}}</view>
-    <view class="images-class">
-      <block wx:for="{{goodsimagesurl}}" wx:key="{{index}}">
-        <image class="goodsimage" src="{{item}}" mode="widthFix" data-idx="{{index}}" bindtap="handleImagePreview"></image>
-      </block>
-    </view>
-  </view>
-
-  <!-- 发布者信息 -->
-  <view class="sellerInformation">
-    <image class='sellerHeadPortrait' src='{{productInfo.avatar}}' mode="aspectFill"> </image>
-    <view class='sellerName'> {{productInfo.username}}</view>
-    <view class='publishTime'>发布于{{productInfo.publishtime}}</view>
-  </view>
-
-  <!-- 评论 -->
-  <view class="comments">
-    <view class="commentsTitle">留言</view>
-    <view class="divLine"></view>
-    <!-- 如果评论为空 -->
-    <view wx:if="{{!commentarr[0]}}" class='defaultComments'>没有评论哦，快来抢个沙发吧！</view>
-    <block wx:for="{{commentarr}}" wx:key="{{item.id}}">
-
-    <!-- 如果不是本用户并且不是发布者 -->
-      <view wx:if='{{item.userid!=myUserid&&productInfo.userid!=myUserid}}' class="comment-class">
-        <image class='commentAvatar' src="{{item.useravatar}}" mode="aspectFill" />
-        <view class="commentuser">{{item.username}}</view>
-        <view class="commentvalue">{{item.content}}</view>
-        <view class="commenttime">{{item.time}}</view>
-        <view class="divLine"></view>
-      </view>
-      <!--如果是本用户或者是发布者，长按可以删除-->
-      <view wx:if='{{item.userid===myUserid||productInfo.userid===myUserid}}' data-id="{{item.id}}" bindlongtap="toDeleteComments" class="comment-class">
-        <image class='commentAvatar' src="{{item.useravatar}}" mode="aspectFill" />
-        <view class="commentuser">{{item.username}}</view>
-        <view class="commentvalue">{{item.content}}</view>
-        <view class="commenttime">{{item.time}}</view>
-        <view class="divLine"></view>
-      </view>
-    </block>
-  </view>
+<include src="detailScorll.wxml" />
 
 
-</scroll-view>
-
-
+<!-- 模糊 -->
+<view id='blurBtn' >
+<view class='content-blurred' >
+<view  style='transform: translate3d(0px, {{blurPosY}}px, 0px);'>
+<include src="detailScorll.wxml" />
+</view>
+</view>
+</view>
 
 <view wx:if="{{!iscommentting}}" class="bottom-bar">
   <checkbox-group class='checkbox-group' bindchange="checkboxChange">

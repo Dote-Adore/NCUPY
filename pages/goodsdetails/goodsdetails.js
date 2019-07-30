@@ -1,13 +1,13 @@
 const app = getApp();
 var popup = require('../common/popup/popup.js')
 
-
 Page({
   data: {
     productInfo: '',
     goodsimagesurl: "",
     WDHeight: app.globalData.windowHeight,
     WDWidth: app.globalData.windowWidth,
+    height: app.globalData.windowHeight,
     collect: {
       name: "collect",
       value: "收藏",
@@ -19,16 +19,26 @@ Page({
     commentContent: "",
     isowner: false,
     commentarr: '',
-    myUserid:0,
+    myUserid: 0,
     showModal: false,
-    tagsArray:[]
+    tagsArray: [],
+    popupanim_opc: null,
+    popupanim: null,
+    blurPosY: app.globalData.windowHeight*(-1)
   },
   onLoad: function(options) {
+    var that = this
     this.getPrePageinfoData();
     this.getImagesUrl();
     this.isCollected();
     this.getComments();
     this.toTagArray()
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log(res);
+          that.data.height =res.windowHeight
+      },
+    })
   },
   isCollected() { //是否被收藏
     let that = this
@@ -43,7 +53,7 @@ Page({
         that.data.collect.checked = res.data
         that.setData({
           collect: that.data.collect,
-          myUserid:app.globalData.userid
+          myUserid: app.globalData.userid
         })
       }
     })
@@ -80,15 +90,15 @@ Page({
   },
 
 
-  toTagArray(){
-     var data = this.data.productInfo.commontags
+  toTagArray() {
+    var data = this.data.productInfo.commontags
 
-     data = data.replace(/"/g,'');
-     data = data.replace("[",'');
+    data = data.replace(/"/g, '');
+    data = data.replace("[", '');
     data = data.replace("]", '');
     this.setData({
-      tagsArray : data.split(",")
-    })    
+      tagsArray: data.split(",")
+    })
   },
   handleImagePreview(e) {
     console.log(e.target.dataset.idx);
@@ -164,25 +174,25 @@ Page({
       title: '正在发送',
     });
     wx.request({
-      url: app.globalData.url+'/comments/create',
-      data:{
-        userid:app.globalData.userid,
-        publishid:that.data.productInfo.id,
-        content:that.data.commentContent
+      url: app.globalData.url + '/comments/create',
+      data: {
+        userid: app.globalData.userid,
+        publishid: that.data.productInfo.id,
+        content: that.data.commentContent
       },
-      success:res=>{
+      success: res => {
         console.log(res);
         wx.hideLoading();
         wx.showToast({
           title: '发送成功',
-          duration:1000
+          duration: 1000
         })
-        setTimeout(function(){
+        setTimeout(function() {
           that.getComments();
           that.setData({
             iscommentting: false
           })
-        },1000)
+        }, 1000)
       }
     })
   },
@@ -233,42 +243,42 @@ Page({
   },
 
 
-  getComments(){
+  getComments() {
     var that = this
     wx.request({
-      url: app.globalData.url+'/comments/get',
-      data:{
-        publishid:that.data.productInfo.id
+      url: app.globalData.url + '/comments/get',
+      data: {
+        publishid: that.data.productInfo.id
       },
-      success:res=>{
+      success: res => {
         console.log(res.data);
         that.setData({
-          commentarr:res.data
+          commentarr: res.data
         })
       }
     })
   },
 
 
-  toDeleteComments(e){
+  toDeleteComments(e) {
     var that = this
     wx.showModal({
       title: '',
       content: '确定要删除此留言吗？',
-      success:res=>{
-        if(res.confirm){
+      success: res => {
+        if (res.confirm) {
           wx.request({
-            url: app.globalData.url+'/comments/delete',
-            data:{
-              id:e.currentTarget.dataset.id
+            url: app.globalData.url + '/comments/delete',
+            data: {
+              id: e.currentTarget.dataset.id
             },
-            success:res=>{
-              if(res.data){
-              wx.showToast({
-                title: '删除成功！',
-                duration:1000
-              })
-              that.getComments();
+            success: res => {
+              if (res.data) {
+                wx.showToast({
+                  title: '删除成功！',
+                  duration: 1000
+                })
+                that.getComments();
               }
             }
           })
@@ -278,11 +288,21 @@ Page({
   },
 
 
+  //滚动
+  onPageScroll(e){
+    this.setData({
+      blurPosY: e.scrollTop * (-1) - this.data.height + 60
+    })
+  },
+
   //弹窗
   showDialogBtn() {
     this.setData({
       showModal: true
     })
+    popup.popupanim(this);
+    popup.opacanim(this)
+
   },
   /**
    * 弹出框蒙层截断touchmove事件
@@ -292,17 +312,25 @@ Page({
    * 隐藏模态对话框
    */
   hideModal() {
-    this.setData({
-      showModal: false
-    });
+    popup.popupanim(this);
+    popup.opacanim_reverse(this)
+    setTimeout(()=>{
+      this.setData({
+        showModal: false
+      });
+    },70)
+
   },
-  toEditManage(){
+  toEditManage() {
     var that = this
     wx.navigateTo({
       url: '/pages/publish/edit/edit',
-      success: function (res) {
+      success: function(res) {
         res.eventChannel.emit('acceptDataFromOpenerPage', that.data.productInfo)
       }
     })
-  }
+  },
+
+
+
 })
