@@ -1,6 +1,6 @@
 <!--弹窗-->
-<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
-<view class="modal-dialog" wx:if="{{showModal}}">
+<view class="modal-mask" bindtap="hideModal" animation="{{opacanim}}" catchtouchmove="preventTouchMove" hidden="{{!showModal}}"></view>
+<view class="modal-dialog" animation="{{popupanim}}" hidden="{{!showModal}}">
   <view class="modal-title">管理</view>
   <view class="modal-content">
     <view class="modal-input">
