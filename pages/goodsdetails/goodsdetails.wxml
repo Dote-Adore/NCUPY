@@ -1,8 +1,8 @@
 <scroll-view class="details-class" scroll-y:true style="width:{{WDWidth}}px">
   <view class="detailsInfo">
     <view class="price">￥{{productInfo.price}}</view>
-    <block wx:for='{{tagsArray}}'  wx:key="{{index}}">
-     <view class='tags'>{{item}}</view>
+    <block  wx:for='{{tagsArray}}'  wx:key="{{index}}">
+     <view wx:if="{{tagsArray[0]}}" class='tags'>{{item}}</view>
     </block>
     <view class="information">{{productInfo.introduction}}</view>
     <view class="images-class">

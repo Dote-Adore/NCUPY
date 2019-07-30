@@ -296,4 +296,13 @@ Page({
       showModal: false
     });
   },
+  toEditManage(){
+    var that = this
+    wx.navigateTo({
+      url: '/pages/publish/edit/edit',
+      success: function (res) {
+        res.eventChannel.emit('acceptDataFromOpenerPage', that.data.productInfo)
+      }
+    })
+  }
 })
