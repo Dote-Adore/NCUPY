@@ -27,3 +27,7 @@
     </view>
   </block>
 </view>
+<view class="aboutBtn">
+  <button id='feedbackBtn' open-type="feedback" >意见反馈</button>
+  <button id='feedbackBtn' >南大咸鱼</button>
+</view>
