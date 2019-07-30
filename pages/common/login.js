@@ -26,21 +26,25 @@ function login(){
       }
       else {//没有授权,引导授权
         console.log("获取用户信息失败")
-        wx.showModal({
-          title: '警告',
-          content: '尚未进行授权，请点击去认定跳转到授权页面进行授权',
-          success: function (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-              wx.navigateTo({
-                url: '/pages/common/authorization/authorization',
-              })
-            }
-          }
-        })
+
       }
     }
   });
+}
+
+function authorization(){
+  wx.showModal({
+    title: '提示',
+    content: '您尚未对小程序进行授权，请点击去认定跳转到授权页面进行授权',
+    success: function (res) {
+      if (res.confirm) {
+        console.log('用户点击确定')
+        wx.navigateTo({
+          url: '/pages/common/authorization/authorization',
+        })
+      }
+    }
+  })
 }
 
 function mylogin() {
@@ -81,5 +85,6 @@ function registerAccount() {
   })
 }
 module.exports = {
-  login: login
+  login: login,
+  authorization: authorization
 }

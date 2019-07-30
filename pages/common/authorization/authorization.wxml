@@ -1,1 +1,2 @@
-<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取头像昵称</button>
+<view class='text'>同学你好！为了你能够完整地使用小程序的功能，你需要对此进行授权，我们将会仅使用你的头像和微信昵称来进行登录。我们不会拿取你的个人隐私</view>
+<button open-type="getUserInfo" class="btn" bindgetuserinfo="getUserInfo" style="background-color:{{maincolor}}">获取头像昵称</button> 

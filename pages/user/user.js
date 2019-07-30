@@ -1,31 +1,32 @@
-const app = getApp()
+const app = getApp();
+const login = require('../../pages/common/login.js')
 Page({
   data: {
-    url:app.globalData.url,
-    userid:app.globalData.userid,
-    userInfoInWechat:'',
-    userInfoInDB:'',
-    sellingTotalPrice:"",
-    followNum:0,
-    followerNum:0,
+    url: app.globalData.url,
+    userid: app.globalData.userid,
+    userInfoInWechat: '',
+    userInfoInDB: '',
+    sellingTotalPrice: "",
+    followNum: 0,
+    followerNum: 0,
     maincolor: app.globalData.maincolor,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     menu: [{
-      name:'发布中',
-      value:""
+        name: '发布中',
+        value: ""
       },
       {
         name: '已卖出',
-        value:""
+        value: ""
       },
       {
-        name:'已购得',
-        value:""
+        name: '已购得',
+        value: ""
       },
       {
-        name:'我的收藏',
-        value:""
+        name: '我的收藏',
+        value: ""
       }
     ],
     areaArr: [
@@ -36,50 +37,54 @@ Page({
     ],
   },
 
-  onLoad: function () {
+  onLoad: function() {
 
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfoInWechat: app.globalData.userInfo,
-        hasUserInfo: true,
-        userid:app.globalData.userid
-      })
-    }
+
     this.requestTheDetails();
     var that = this
-    setTimeout(function () {
+    setTimeout(function() {
       that.updateUserinfo();
     }, 2000)
   },
 
-  onShow:function(){
-  this.requestTheDetails();
+  onShow: function() {
+    if (app.globalData.userInfo === '') {
+      login.authorization();
+      return;
+    }
+    this.requestTheDetails();
+    this.setData({
+      userInfoInWechat: app.globalData.userInfo,
+      hasUserInfo: true,
+      userid: app.globalData.userid
+    })
   },
 
 
-  toInfo(e){
+  toInfo(e) {
     var idx = e.target.dataset.idx;
     var data = {
-      menu:this.data.menu[idx].name,
-      userid:getApp().globalData.userid,
-      name:this.data.menu[idx].name
+      menu: this.data.menu[idx].name,
+      userid: getApp().globalData.userid,
+      name: this.data.menu[idx].name
     }
     wx.navigateTo({
       url: 'menu/menu',
-      success: function (res) {
-        res.eventChannel.emit('acceptDataFromOpenerPage',data)
+      success: function(res) {
+        res.eventChannel.emit('acceptDataFromOpenerPage', data)
       }
     })
   },
 
-  requestTheDetails:function(){
+  requestTheDetails: function() {
     var that = this;
     var menu = that.data.menu;
     wx.request({
       url: this.data.url + '/getUserDetails',
       data: {
         id: getApp().globalData.userid
-      }, success: res => {
+      },
+      success: res => {
         menu[0].value = res.data.havePublishedNum;
         menu[1].value = res.data.dealDoneNum;
         menu[2].value = res.data.purchasedNum;
@@ -87,50 +92,53 @@ Page({
         that.data.sellingTotalPrice = res.data.sellingTotalPrice;
 
         this.setData({
-          userInfoInDB:res.data.userinfo,
+          userInfoInDB: res.data.userinfo,
           menu: that.data.menu, //获取收藏等
           sellingTotalPrice: that.data.sellingTotalPrice,
-          followNum: res.data.followNum,  //关注数
-          followerNum: res.data.followerNum  //粉丝数
+          followNum: res.data.followNum, //关注数
+          followerNum: res.data.followerNum //粉丝数
         })
         console.log(that.data.userInfoInDB);
       }
-    }) 
+    })
   },
 
-  toUserHome(){
+  toUserHome() {
     var that = this
     wx.navigateTo({
       url: '/pages/userHome/userHome',
       success: res => {
-        res.eventChannel.emit('acceptDataFromOpenerPage', { userid: app.globalData.userid, avatarUrl: that.data.userInfo.avatarUrl })
+        res.eventChannel.emit('acceptDataFromOpenerPage', {
+          userid: app.globalData.userid,
+          avatarUrl: that.data.userInfo.avatarUrl
+        })
       }
     })
   },
-  toEditUserInfo(e){
+  toEditUserInfo(e) {
     var that = this.data.userInfoInDB
     wx.navigateTo({
-      url: 'editUserInfo/editUserInfo?area='+that.area+'&enrollmentyear='+that.enrollmentyear+'&id='+that.id+'&phonenumber='+that.phonenumber+'&schoolid='+that.schoolid,
+      url: 'editUserInfo/editUserInfo?area=' + that.area + '&enrollmentyear=' + that.enrollmentyear + '&id=' + that.id + '&phonenumber=' + that.phonenumber + '&schoolid=' + that.schoolid,
       // success:res=>{
       //   res.eventChannel.emit('acceptDataFromOpenerPage', {data:that})
       // }
     })
   },
 
-  updateUserinfo(){
+  updateUserinfo() {
     var that = this.data
-    if(that.userInfoInDB.avatar!=app.globalData.userInfo.avatarUrl){
+    if (that.userInfoInDB.avatar != app.globalData.userInfo.avatarUrl) {
       console.log(app.globalData.userInfo.avatarUrl);
       wx.request({
         url: app.globalData.url + '/user/edituserInfo',
-        data:{
+        data: {
           avatar: app.globalData.userInfo.avatarUrl,
           userid: app.globalData.userid,
-          method:"changeAvatar"
+          method: "changeAvatar"
         }
       })
     }
-    if (that.userInfoInDB.name != app.globalData.userInfo.nickName){
+    if (that.userInfoInDB.name != app.globalData.userInfo.nickName) {
       wx.request({
         url: app.globalData.url + '/user/edituserInfo',
         data: {

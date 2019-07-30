@@ -1,7 +1,8 @@
 const app = getApp();
+const login = require('../login.js')
 Page({
   data: {
-    
+    maincolor: app.globalData.maincolor
   },
 
   /**
@@ -21,6 +22,7 @@ Page({
       duration:2000
     });
     else{
+      login.login()
       wx.showToast({
         title: '获取成功',
         icon: 'success',
