@@ -1,0 +1,22 @@
+
+<view>
+    <textarea bindinput="getIntroduction" class="introductionInput" type="text" value="{{introduction}}" placeholder="在这里描述一下你的物品吧！" confirm-type="done"/>
+    <view class="optionContain">
+      <view class="options">一口价 <input class="price"type="number" placeholder="0" bindinput="getPrice"value="{{price}}"></input></view>
+      <view class="options" id="option2" bindtap="chooseTag" >标 签
+      <view class="tagarray">{{tagarray}}</view>
+      </view>
+    </view>
+    <view class="images" style="width:{{deviceWidth}}px">
+      <block wx:for="{{images}}" wx:key="{{index}}">
+        <view class="q-image-wrap" style="width:{{deviceWidth/3-5}}px;height:{{deviceWidth/3-5}}px">
+           <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+      <!-- 移除图片的按钮  -->
+            <view class="q-image-remover"data-idx="{{index}}" bindtap="removeImage">删除</view>
+        </view>
+      </block>
+      <button class="chooseImageBtn" style="width:{{deviceWidth/3-5}}px;height:{{deviceWidth/3-5}}px;line-height:{{deviceWidth/3-5}}px" bindtap="chooseImage" wx:if="{{images.length<9}}">添加图片</button>
+    </view>
+</view>
+
+<button class ="publishBtn" bindtap="startPublish" style="background-color:{{maincolor}}">发布</button>
