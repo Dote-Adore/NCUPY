@@ -1,5 +1,5 @@
 <view class='userinfo' style="background-color:{{maincolor}}">
-  <view class ='nickname' bindtap="toUserHome">{{userInfoInWechat.nickName}}</view>
+  <view class ='nickname' id='limitLine-1' bindtap="toUserHome">{{userInfoInWechat.nickName}}</view>
   <text class = 'area'>{{areaArr[userInfoInDB.area]}}</text>
   <text wx:if='{{userInfoInDB.area===null}}' class = 'area'>你还没有填写地区哦~</text>
   <view class="pricenum" bindtap="toUserHome" decode="{{true}}" >哇哦！您已经在这里赚了{{sellingTotalPrice}}元></view>

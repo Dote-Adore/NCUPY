@@ -3,7 +3,7 @@
     <view wx:if='{{index%2===0}}'   class='product-overview' >
       <view bindtap="toDetails" data-productdata="{{item}}">
         <image class="product-image" src="{{item.mainimgsrc}}" mode="aspectFill" lazy-load="true" style="height:{{WDWidth/2}}px"></image>
-        <view class="product-Info">{{item.introduction}}</view>
+        <view class="product-Info" id='limitLine-3'>{{item.introduction}}</view>
         <view class="price-Info">￥{{item.price}}</view>
         <view class="user-Info">
           <image src="{{item.avatar}}" mode="aspectFit" azy-load="true" class='avatar'/>

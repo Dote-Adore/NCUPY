@@ -1,5 +1,5 @@
 const app = getApp()
-
+var publish = require('../../../utils/publish.js')
 Page({
   data: {
     basicData:'',
@@ -75,14 +75,14 @@ Page({
         method:'getAllCollections'
       },
       success:res=>{
+ 
+        for(let i = 0;i<res.data.length;i++){
+          res.data[i].collect = true;
+        }
         that.setData({
           goods:res.data
         })
         wx.stopPullDownRefresh();
-        wx.showToast({
-          title: '刷新成功！',
-          icon: 'none'
-        })
       }
     })
   },
@@ -99,43 +99,13 @@ Page({
       }
   })
   },
-  checkboxChange(e) {
-    let publishid = e.currentTarget.dataset.publishid
-    if (e.detail.value[0] == 'collect') {
-      wx.request({
-        url: app.globalData.url + '/collect',
-        data: {
-          userid: app.globalData.userid,
-          publishid: publishid,
-          method: 'collect'
-        },
-        success: res => {
-          wx.showToast({
-            title: '收藏成功',
-            icon: 'success',
-            duration: 1000,
-          })
-        }
-      })
-    }
-    else {
-      console.log(this.data.goods);
-      wx.request({
-        url: app.globalData.url + '/collect',
-        data: {
-          userid: app.globalData.userid,
-          publishid: publishid,
-          method: 'cancelCollect'
-        },
-        success: res => {
-          wx.showToast({
-            title: '取消收藏成功',
-            icon: 'success',
-            duration: 1000,
-          })
-        }
-      })
-    }
+  toCollect(e){
+
+    publish.tocollect(this, this.data.goods[e.currentTarget.dataset.idx]);
+    this.data.goods[e.currentTarget.dataset.idx].collect = !this.data.goods[e.currentTarget.dataset.idx].collect;
+    this.setData({
+      goods:this.data.goods
+    })
   },
   toEdit(e){
     wx.navigateTo({

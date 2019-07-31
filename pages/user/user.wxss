@@ -18,16 +18,12 @@ page{
   font-size: 15px;
 }
 .nickname{
-  -webkit-line-clamp:1;
-  display: -webkit-box;
   color: white;
   width: 200px;
   font-size: 23px;
   font-weight: bold;
   height: 30px;
-  text-overflow: ellipsis;
   max-width: 200px;
-  overflow: hidden;
   margin-bottom: 5px;
 }
 .pricenum{
@@ -48,7 +44,7 @@ page{
 }
 .follow-follower{
   border-width: 1px 0 0 0;
-  border-color: #008dbd;
+  border-color: #fda883;
   border-style: solid;
   
   overflow: hidden;

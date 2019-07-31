@@ -30,15 +30,6 @@ page{
 .product-Info{
   margin: 5px 10px 10px 10px;
   font-size: 14px;
-  -webkit-line-clamp:3;
-   display: -webkit-box;
-  text-overflow: -o-ellipsis-lastline;
-    overflow: hidden;
-
-  
-  -webkit-box-orient: vertical;
-
-  align-content: center;
 }
 .user-Info{
   line-height: 20px;

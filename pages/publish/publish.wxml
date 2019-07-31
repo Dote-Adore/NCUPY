@@ -12,10 +12,12 @@
         <view class="q-image-wrap" style="width:{{deviceWidth/3-5}}px;height:{{deviceWidth/3-5}}px">
            <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
       <!-- 移除图片的按钮  -->
-            <view class="q-image-remover"data-idx="{{index}}" bindtap="removeImage">删除</view>
+            <image class="q-image-remover" src='/resoures/icon/delete.png' mode="aspectFill" data-idx="{{index}}" bindtap="removeImage"></image>
         </view>
       </block>
-      <button class="chooseImageBtn" style="width:{{deviceWidth/3-5}}px;height:{{deviceWidth/3-5}}px;line-height:{{deviceWidth/3-5}}px" bindtap="chooseImage" wx:if="{{images.length<9}}">添加图片</button>
+      <view wx:if="{{images.length<9}}" class='addPictureBtnBG'style="width:{{deviceWidth/3-5}}px;height:{{deviceWidth/3-5}}px;line-height:{{deviceWidth/3-5}}px">
+      <image class="chooseImageBtn" src="/resoures/icon/addPicture.png" mode='aspectFit' bindtap="chooseImage" ></image>
+      </view>
     </view>
 </view>
 

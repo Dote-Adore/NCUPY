@@ -1,23 +1,24 @@
-
-<view wx:if="{{goods===''}}"class="nodata">这里空空如也~去其他地方逛逛吧！</view>
+<view wx:if="{{goods===''}}" class="nodata">
+  这里空空如也~去其他地方逛逛吧！</view>
 
 <block wx:for="{{goods}}" wx:key="{{index}}">
-  <view class = "mainContainer" >
-  <view  bindtap="toDetails" data-productdata="{{item}}">
-    <image class="goodsImg" src="{{item.mainimgsrc}}" mode="aspectFill"></image>
-    <view>{{item.introduction}}</view>
-    <view class="price">￥{{item.price}}</view>
-    <view class="info" wx:if="{{basicData.name==='已卖出'}}"><image class="successIcon" src="/resoures/icon/success.png" mode="aspectFill"></image>交易成功</view>
-    <text class="info" wx:if="{{basicData.name==='发布中'}}"decode="true">留言{{item.commmentsNum}}</text>
-  </view>
+  <view class="mainContainer">
+    <view bindtap="toDetails" data-productdata="{{item}}">
+      <image class="goodsImg" src="{{item.mainimgsrc}}" mode="aspectFill"></image>
+      <view id='limitLine-2'>{{item.introduction}}</view>
+      <view class="price">￥{{item.price}}</view>
+      <view class="info" wx:if="{{basicData.name==='已卖出'}}">
+        <image class="successIcon" src="/resoures/icon/success.png" mode="aspectFill"></image>交易成功</view>
+      <text class="info" wx:if="{{basicData.name==='发布中'}}" decode="true">留言{{item.commmentsNum}}</text>
+    </view>
     <view class="btns">
       <view wx:if="{{basicData.name==='已卖出'}}" class="Btn" data-publishid="{{item.publishid}}" bindtap="toComments">查看评价</view>
       <view wx:if="{{basicData.name==='发布中'}}" class="Btn" data-info="{{item}}" bindtap="toEdit">编辑</view>
-      <checkbox-group wx:if="{{basicData.name==='我的收藏'}}" class='Btn' bindchange="checkboxChange" data-publishid='{{item.id}}'>
-        <label>
-          <checkbox  value="{{collect.name}}" checked="{{collect.checked}}">{{collect.value}}</checkbox>
-        </label>
-      </checkbox-group>
+      <view class='bottomBtns' id='collectBtn'wx:if="{{basicData.name==='我的收藏'}}" data-idx='{{index}}' bindtap='toCollect'>
+        <image wx:if="{{!item.collect}}" class='icon' src="/resoures/icon/collect.png" mode='widthFix'></image>
+        <image wx:if="{{item.collect}}"class='icon' src="/resoures/icon/collectSelected.png" mode='widthFix'></image>
+        <view>收藏</view>
+      </view>
     </view>
   </view>
 </block>

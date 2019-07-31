@@ -1,3 +1,4 @@
+
 .mainContainer{
   margin: 10px;
   padding: 10px;
@@ -55,4 +56,24 @@
   text-align: center;
   margin-top: 120px;
   font-size: 18px;
+}
+
+#collectBtn{
+  color: black;
+  float: right;
+}
+
+
+
+.bottomBtns{
+  color: white;
+  text-align: center;
+  width: 60px;
+  float: right;
+}
+.icon{
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  float: left;
 }
