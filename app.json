@@ -20,7 +20,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#00688b",
+    "navigationBarBackgroundColor": "#f08a5d",
     "navigationBarTitleText": "咸鱼平台",
     "navigationBarTextStyle": "white",
     "backgroundColor":"#666666",
@@ -28,18 +28,25 @@
     "onReachBottomDistance":50
   },
   "tabBar": {
-    "selectedColor":"#00688b",
+    "color": "#515151",
+    "selectedColor":"#f08a5d",
     "list": [{
       "pagePath": "pages/index/index",
-      "text": "主页"
+      "text": "主页",
+      "iconPath": "/resoures/icon/index.png",
+      "selectedIconPath": "/resoures/icon/indexSelected.png"
     },
     {
     "pagePath":"pages/publish/publish",
-    "text":"发布"
+    "text":"发布",
+    "iconPath": "/resoures/icon/publish.png",
+    "selectedIconPath": "/resoures/icon/publishSelected.png"
     },
     {
       "pagePath":"pages/user/user",
-      "text":"我的"
+      "text":"我的",
+      "iconPath": "/resoures/icon/user.png",
+      "selectedIconPath": "/resoures/icon/userSelected.png"
     }]
   },
   "sitemapLocation": "sitemap.json",

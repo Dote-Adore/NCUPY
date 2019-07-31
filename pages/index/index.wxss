@@ -35,8 +35,8 @@
   padding: 0 0 20px 0;
 }
 .category-images{
-  width: 60%;
-  height: 60%;
+  width: 65%;
+  height: 65%;
   margin: 20% 20% 10% 20%;
   background-color: white;
   border-radius:10px;

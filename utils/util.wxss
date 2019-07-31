@@ -1,0 +1,21 @@
+#collectBtn{
+  color: black;
+  float: left;
+}
+
+
+
+.bottomBtns{
+  line-height: 44px;
+  margin: 10px 20px 10px 20px;
+  color: white;
+  text-align: center;
+  width: 60px;
+  float: right;
+}
+.icon{
+  width: 18px;
+  height: 18px;
+  margin-top: 13px;
+  float: left;
+}

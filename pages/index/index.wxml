@@ -6,7 +6,7 @@
 <view class="category-class" style="background-color:{{maincolor}}">
   <block wx:for="{{categories}}" wx:key="index">
     <view  class = "category-item" style="width:{{WDWidth/4-20}}px;height:{{WDWidth/4-20}}px">
-      <view class="category-images" data-idx="{{index}}" bindtap="toCategory"></view>
+      <image src="{{categoriesimg[index]}}" mode="aspectFit" class="category-images" data-idx="{{index}}" bindtap="toCategory"></image>
       <view class="category-name">{{categories[index]}}</view>
     </view>
   </block>

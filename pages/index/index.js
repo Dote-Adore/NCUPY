@@ -9,6 +9,16 @@ Page({
     WDHeight: app.globalData.windowHeight,
     WDWidth: app.globalData.windowWidth,
     categories:['数码','衣物','日用','学习','美妆','娱乐','运动','零食'],
+    categoriesimg:[
+      'https://ncutradingplatform.oss-cn-shanghai.aliyuncs.com/icon/categroy/digital.png',
+      "https://ncutradingplatform.oss-cn-shanghai.aliyuncs.com/icon/categroy/clothing.png",
+      "https://ncutradingplatform.oss-cn-shanghai.aliyuncs.com/icon/categroy/daily.png",
+      "https://ncutradingplatform.oss-cn-shanghai.aliyuncs.com/icon/categroy/study.png",
+      "https://ncutradingplatform.oss-cn-shanghai.aliyuncs.com/icon/categroy/cosmetics.png",
+      "https://ncutradingplatform.oss-cn-shanghai.aliyuncs.com/icon/categroy/game.png",
+      "https://ncutradingplatform.oss-cn-shanghai.aliyuncs.com/icon/categroy/sport.png",
+      "https://ncutradingplatform.oss-cn-shanghai.aliyuncs.com/icon/categroy/food.png",
+    ],
     maincolor: app.globalData.maincolor,
     productInfo:'',
     page:0
