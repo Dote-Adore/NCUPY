@@ -20,7 +20,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f08a5d",
+    "navigationBarBackgroundColor": "#FE483D",
     "navigationBarTitleText": "咸鱼平台",
     "navigationBarTextStyle": "white",
     "backgroundColor":"#666666",
@@ -29,7 +29,7 @@
   },
   "tabBar": {
     "color": "#515151",
-    "selectedColor":"#f08a5d",
+    "selectedColor":"#FE483D",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "主页",

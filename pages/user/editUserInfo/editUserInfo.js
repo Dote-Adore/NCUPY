@@ -13,7 +13,8 @@ Page({
     schoolid:'',
     phonenumber:'',
     enrollmentyear:'',
-    userinfo:''
+    userinfo:'',
+    maincolor:app.globalData.maincolor
   },
 
   onLoad(options) {

@@ -30,7 +30,7 @@ App({
     windowWidth:"null",
     height:null,
     top:null,
-    maincolor:'#f08a5d',
+    maincolor:'#FE483D',
     userid:0,
     url:"https://www.ncutradingplatform.top:8443/NCUTradingPlatform",
     url2:"http://localhost:8080/NCUTradingPlatform"
