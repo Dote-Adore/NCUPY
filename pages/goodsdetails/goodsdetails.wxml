@@ -2,21 +2,24 @@
 
 
 <!-- 模糊 -->
-<view id='blurBtn' >
-<view class='content-blurred' >
-<view  style='transform: translate3d(0px, {{blurPosY}}px, 0px);'>
-<include src="detailScorll.wxml" />
-</view>
-</view>
+<view id='blurBtn'>
+  <view class='content-blurred'>
+    <view style='transform: translate3d(0px, {{blurPosY}}px, 0px);'>
+      <include src="detailScorll.wxml" />
+    </view>
+  </view>
 </view>
 
 <view wx:if="{{!iscommentting}}" class="bottom-bar">
-  <checkbox-group class='checkbox-group' bindchange="checkboxChange">
-    <label>
-      <checkbox value="{{collect.name}}" checked="{{collect.checked}}">{{collect.value}}</checkbox>
-    </label>
-  </checkbox-group>
-  <view class='bottomBtns' id='commentBtn' bindtap="comments">评论</view>
+  <view class='bottomBtns' id='collectBtn' bindtap='toCollect'>
+    <image wx:if='{{!collect.checked}}' class='icon' src="/resoures/icon/collect.png" mode='widthFix'></image>
+    <image wx:if='{{collect.checked}}' class='icon' src="/resoures/icon/collectSelected.png" mode='widthFix'></image>
+    <view>收藏</view>
+  </view>
+  <view class='bottomBtns' id='commentBtn' bindtap="comments">
+    <image class='icon' src="/resoures/icon/comment.png" mode='widthFix'></image>
+    <view>评论</view>
+  </view>
   <view class='bottomBtns' id='purchaseBtn' wx:if='{{!isowner}}'>联系TA</view>
   <view class='bottomBtns' id='manageBtn' wx:if='{{isowner}}' bindtap="toManage">管理</view>
 </view>

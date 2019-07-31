@@ -1,5 +1,6 @@
 const app = getApp();
-var popup = require('../common/popup/popup.js')
+var popup = require('../common/popup/popup.js');
+var publish = require('../../utils/publish.js')
 
 Page({
   data: {
@@ -109,40 +110,9 @@ Page({
       urls: images //所有要预览的图片
     });
   },
-  checkboxChange(e) {
-    if (e.detail.value[0] == 'collect') {
-      wx.request({
-        url: app.globalData.url + '/collect',
-        data: {
-          userid: app.globalData.userid,
-          publishid: this.data.productInfo.id,
-          method: 'collect'
-        },
-        success: res => {
-          wx.showToast({
-            title: '收藏成功',
-            icon: 'success',
-            duration: 1000,
-          })
-        }
-      })
-    } else {
-      wx.request({
-        url: app.globalData.url + '/collect',
-        data: {
-          userid: app.globalData.userid,
-          publishid: this.data.productInfo.id,
-          method: 'cancelCollect'
-        },
-        success: res => {
-          wx.showToast({
-            title: '取消收藏成功',
-            icon: 'success',
-            duration: 1000,
-          })
-        }
-      })
-    }
+
+  toCollect(){
+    publish.tocollect(this, this.data.productInfo);
   },
   comments() {
     console.log("comments");

@@ -1,5 +1,6 @@
 @import"/pages/common/popup/popup.wxss";
 @import"/utils/blur.wxss";
+@import"/utils/util.wxss";
 .details-class{
   /*padding: 10px 10px 80px 10px;*/
   background:#EDEDED;
@@ -47,21 +48,8 @@
   z-index: 10;
 }
 
-.checkbox-group{
-  float: left;
-  line-height: 40px;
-  margin: 10px;
-  width: 70px;
-  height: 40px;
-}
-.bottomBtns{
-  line-height: 40px;
-  margin: 10px 20px 10px 0;
-  color: white;
-  text-align: center;
-   width: 80px;
-  float: right;
-}
+
+
 
 #commentBtn{
   float:left;
