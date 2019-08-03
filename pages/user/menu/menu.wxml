@@ -5,7 +5,7 @@
   <view class="mainContainer">
     <view bindtap="toDetails" data-productdata="{{item}}">
       <image class="goodsImg" src="{{item.mainimgsrc}}" mode="aspectFill"></image>
-      <view id='limitLine-2'>{{item.introduction}}</view>
+      <view id='limitLine-1'>{{item.introduction}}</view>
       <view class="price">￥{{item.price}}</view>
       <view class="info" wx:if="{{basicData.name==='已卖出'}}">
         <image class="successIcon" src="/resoures/icon/success.png" mode="aspectFill"></image>交易成功</view>
