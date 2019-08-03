@@ -6,6 +6,7 @@
     <view class="modal-input">
       <view class="popupbtns" bindtap="toEditManage">编辑</view>
       <view class="popupbtns" bindtap="toDeleteManage">删除</view>
+      <view class='popupbtns' bindtap="sell">标注为已卖出</view>
       <view class="popupbtns"bindtap="toCancelManage">取消</view>
     </view>
   </view>

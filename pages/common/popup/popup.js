@@ -102,7 +102,6 @@ function opacanim_reverse(that){
     })
   }, 12)
 }
-
 module.exports = {
   popupanim: popupanim,
   showDialogBtn: showDialogBtn,
