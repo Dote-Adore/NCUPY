@@ -110,6 +110,8 @@ Page({
   },
   
   toDetails(e){//进入详情界面
+    if(this.data.basicData.name==='已卖出')
+      return;
     console.log(e);
     var data = e.currentTarget.dataset
     wx.navigateTo({
