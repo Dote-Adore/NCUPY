@@ -1,6 +1,7 @@
 const app = getApp();
 var popup = require('../common/popup/popup.js');
 var publish = require('../../utils/publish.js')
+var trade = require('../../utils/trade.js')
 
 Page({
   data: {
@@ -300,7 +301,13 @@ Page({
       }
     })
   },
-
-
-
+// 标记为已卖出
+sell(){
+  trade.sellgoods(this.data.productInfo, function(){
+    let time = setTimeout(function(){
+      wx.navigateBack();
+      clearTimeout(time);
+    },2000)
+    })
+},
 })

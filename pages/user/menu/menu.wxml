@@ -13,6 +13,7 @@
     </view>
     <view class="btns">
       <view wx:if="{{basicData.name==='已卖出'}}" class="Btn" data-publishid="{{item.publishid}}" bindtap="toComments">查看评价</view>
+      <view wx:if="{{basicData.name==='发布中'}}" class="Btn" data-info="{{item}}" bindtap="tosell">已卖出</view>
       <view wx:if="{{basicData.name==='发布中'}}" class="Btn" data-info="{{item}}" bindtap="toEdit">编辑</view>
       <view class='bottomBtns' id='collectBtn'wx:if="{{basicData.name==='我的收藏'}}" data-idx='{{index}}' bindtap='toCollect'>
         <image wx:if="{{!item.collect}}" class='icon' src="/resoures/icon/collect.png" mode='widthFix'></image>

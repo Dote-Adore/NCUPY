@@ -40,20 +40,6 @@ function tocollect(that,data){
     collect: that.data.collect
   })
 }
-
-
-function sell(that){
-  wx.showModal({
-    title: '提示',
-    content: '确认将此条发布标记为 已卖出 吗？',
-    success:res=>{
-      if(res.confirm){
-        
-      }
-    }
-  })
-}
-
 module.exports = {
   tocollect: tocollect
 }

@@ -1,5 +1,6 @@
 const app = getApp()
 var publish = require('../../../utils/publish.js')
+var trade = require('../../../utils/trade.js')
 Page({
   data: {
     basicData:'',
@@ -34,9 +35,11 @@ Page({
       that.getPublish()
     else if(that.data.basicData.name==='我的收藏')
       this.getcollect();
+    else if(that.data.basicData.name==='已卖出')
+      this.getTrade();
 
   },
-
+  //刷新
   onPullDownRefresh(){
     if (this.data.basicData.name === '发布中')
       this.getPublish()
@@ -44,6 +47,7 @@ Page({
       this.getcollect();
   },
 
+//发布中
   getPublish(){
     var that = this
     wx.request({
@@ -66,6 +70,7 @@ Page({
     })
   },
 
+//我的收藏
   getcollect(){
     var that = this
     wx.request({
@@ -83,6 +88,21 @@ Page({
           goods:res.data
         })
         wx.stopPullDownRefresh();
+      }
+    })
+  },
+  //已卖出
+  getTrade(){
+    var that = this;
+    wx.request({
+      url: app.globalData.url+'/trade/get',
+      data:{
+        userid:app.globalData.userid
+      },
+      success:res=>{
+        that.setData({
+          goods:res.data
+        })
       }
     })
   },
@@ -114,5 +134,12 @@ Page({
         res.eventChannel.emit('acceptDataFromOpenerPage', e.currentTarget.dataset.info)
       }
     })
-  }
+  },
+  tosell(item) {
+    var that = this
+    var data = item.currentTarget.dataset.info;
+    trade.sellgoods(data, function () {
+      that.getPublish();
+    })
+  },
 })
