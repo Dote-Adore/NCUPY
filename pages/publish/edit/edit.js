@@ -7,6 +7,7 @@ Page({
 
     publishid: 0,
     images: [],
+    imagesindex:[],
     price: '',
     introduction: '',
     tags: {
@@ -45,7 +46,8 @@ Page({
       },
       success(res) {
         that.setData({
-          images: res.data
+          images: res.data.src,
+          imagesindex:res.data.indexs
         })
       }
     })
@@ -227,6 +229,7 @@ Page({
 
     for (let i = 0; i < that.data.images.length; i++) {
       //压缩图片
+      //如果图片没变化
       if (that.data.images[i].substring(0, 11) === 'https://ncu') {
         wx.request({
           url: getApp().globalData.url + "/publish/edit",

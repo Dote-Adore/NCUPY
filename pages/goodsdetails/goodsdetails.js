@@ -7,6 +7,7 @@ Page({
   data: {
     productInfo: '',
     goodsimagesurl: "",
+    imagesindex:'',
     WDHeight: app.globalData.windowHeight,
     WDWidth: app.globalData.windowWidth,
     height: app.globalData.windowHeight,
@@ -85,7 +86,8 @@ Page({
       },
       success(res) {
         that.setData({
-          goodsimagesurl: res.data
+          goodsimagesurl: res.data.src,
+          imagesindex:res.data.indexs
         })
       }
     })
