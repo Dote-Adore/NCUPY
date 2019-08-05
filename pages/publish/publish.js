@@ -11,7 +11,7 @@ Page({
     price:'',
     introduction:'',
     tags: {
-      choosentags: 0,
+      choosentags:[],
       classify: ''
     },
     tagarray: '',

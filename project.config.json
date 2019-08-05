@@ -50,7 +50,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -91,6 +91,13 @@
 					"id": -1,
 					"name": "publish",
 					"pathName": "pages/publish/publish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "tags",
+					"pathName": "pages/publish/tags/tags",
 					"scene": null
 				}
 			]

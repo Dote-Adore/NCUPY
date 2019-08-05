@@ -7,7 +7,7 @@
 }
 .CommonTags
 {
-  padding: 20px;
+  padding: 15px;
 }
 .TagTitle{
   font-size: 20px;
@@ -28,4 +28,18 @@
   height: 40px;
   margin: 10px;
   font-size: 17px;
+}
+.checkitem{
+  display: inline;
+  padding: 0 10px 0 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  border: 1px #999999 solid;
+  border-radius: 3px;
+  text-align: center;
+}
+#checked{
+  background-color: #FE483D;
+  color: white;
+  border: 0;
 }

@@ -2,12 +2,12 @@ const app = getApp()
 Page({
   data: {
     maincolor: app.globalData.maincolor,
-    items: [
+    tags: [
       { name: 'new', value: '全新',checked:false },
       { name: 'noBargain', value: '不讲价',checked:false }
     ],
     categories: ['数码', '衣物', '日用', '学习', '美妆', '娱乐', '运动', '零食'],
-    index:5
+    index:-1
     
   },
   onLoad(){
@@ -16,37 +16,53 @@ Page({
     var prevPage = pages[pages.length - 2]    //获取上一个页面
     var that = this
     var tags=prevPage.data.tags;
+    console.log(tags);
     if (tags.classify!=''){
       console.log("将上一个页面的分类值写下")
       that.setData({
         index:tags.classify.index
       })
     }
-    var items = that.data.items;
+    var mytags = that.data.tags;
     for(var i = 0;i<tags.choosentags.length;i++){
-      for(var j=0;j<items.length;j++){
-        if(tags.choosentags[i] == items[j].name){
-          items[j].checked = true;
+      for(var j=0;j<mytags.length;j++){
+        if(tags.choosentags[i] == mytags[j].name){
+          mytags[j].checked = true;
         }
       }
     }
     that.setData({
-      items:items
+      tags:mytags
     })
+    console.log(tags.choosentags)
     that.staticData.choosentags = tags.choosentags
   },
   staticData:{
-    choosentags: ""
+    choosentags: []
   },
   checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e)
-    this.staticData.choosentags = e.detail.value
+    // console.log('checkbox发生change事件，携带value值为：', e)
+    // this.staticData.choosentags = e.detail.value
+    // console.log(this.staticData.choosentags)、
+    var data = e.currentTarget.dataset;
+    this.data.tags[data.index].checked = !this.data.tags[data.index].checked;
+    this.setData({
+      tags:this.data.tags
+    })
+    if(this.data.tags[data.index].checked){//如果被选中
+      this.staticData.choosentags.push(data.item.name);
+    }
+    else{
+      for(let i = 0;i<this.staticData.choosentags.length;i++){
+        if(this.staticData.choosentags[i]===data.item.name){
+          this.staticData.choosentags.splice(i,1);
+        }
+      }
+    }
     console.log(this.staticData.choosentags)
-
   },
   bindPickerChange: function (e) {
     var that = this;
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     that.setData({
       index: e.detail.value
     })
