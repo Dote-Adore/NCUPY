@@ -32,7 +32,7 @@ App({
     top:null,
     maincolor:'#FE483D',
     userid:0,
-    url2:"https://www.ncutradingplatform.top:8443/NCUTradingPlatform",
-    url:"http://localhost:8080/NCUTradingPlatform"
+    url:"https://www.ncutradingplatform.top:8443/NCUTradingPlatform",
+    url2:"http://localhost:8080/NCUTradingPlatform"
   }
 }) 

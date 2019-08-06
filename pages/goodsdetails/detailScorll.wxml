@@ -4,7 +4,7 @@
     <block  wx:for='{{tagsArray}}'  wx:key="{{index}}">
      <view wx:if="{{tagsArray[0]}}" class='tags'>{{item}}</view>
     </block>
-    <view class="information">{{productInfo.introduction}}</view>
+    <text class="information">{{productInfo.introduction}}</text>
     <view class="images-class">
       <block wx:for="{{goodsimagesurl}}" wx:key="{{index}}">
         <image class="goodsimage" src="{{item}}" mode="widthFix" data-idx="{{index}}" bindtap="handleImagePreview"></image>
