@@ -1,4 +1,5 @@
 <view class='userinfo' style="background-color:{{maincolor}}">
+    <image class='messageicon' src='/resoures/icon/message.png' mode="aspectFill" bindtap="tomessage" ></image>
   <view class ='nickname' id='limitLine-1' bindtap="toUserHome">{{userInfoInWechat.nickName}}</view>
   <text class = 'area'>{{areaArr[userInfoInDB.area]}}</text>
   <text wx:if='{{userInfoInDB.area===null}}' class = 'area'>你还没有填写地区哦~</text>

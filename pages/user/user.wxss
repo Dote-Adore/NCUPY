@@ -1,6 +1,13 @@
 page{
   background-color: #EDEDED;
 }
+.messageicon{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 0px;
+}
 .userinfo{
   position: relative;
   padding: 20px;
@@ -9,9 +16,10 @@ page{
   position: absolute;
   width: 90px;
   height: 90px;
-  top:30px;
+  top:40px;
   right: 25px;
   border-radius: 3px;
+  background-color: gray;
 }
 .area{
   color: white;

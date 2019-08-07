@@ -21,10 +21,6 @@ Page({
         value: ""
       },
       {
-        name: '已购得',
-        value: ""
-      },
-      {
         name: '我的收藏',
         value: ""
       }
@@ -38,8 +34,6 @@ Page({
   },
 
   onLoad: function() {
-
-
     this.requestTheDetails();
     var that = this
     setTimeout(function() {
@@ -49,7 +43,7 @@ Page({
 
   onShow: function() {
     if (app.globalData.userInfo === '') {
-      login.authorization();
+      login.login();
       return;
     }
     this.requestTheDetails();
@@ -87,8 +81,8 @@ Page({
       success: res => {
         menu[0].value = res.data.havePublishedNum;
         menu[1].value = res.data.dealDoneNum;
-        menu[2].value = res.data.purchasedNum;
-        menu[3].value = res.data.collectionNum;
+       // menu[2].value = res.data.purchasedNum;
+        menu[2].value = res.data.collectionNum;
         that.data.sellingTotalPrice = res.data.sellingTotalPrice;
 
         this.setData({
@@ -148,5 +142,10 @@ Page({
         }
       })
     }
+  },
+  tomessage(){
+    wx.navigateTo({
+      url: 'message/message',
+    })
   }
 })
