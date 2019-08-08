@@ -1,5 +1,4 @@
 <view class='userinfo' style="background-color:{{maincolor}}">
-    <image class='messageicon' src='/resoures/icon/message.png' bindtap="tomessage" ></image>
   <view class ='nickname' id='limitLine-1' bindtap="toUserHome">{{userInfoInWechat.nickName}}</view>
   <text class = 'area'>{{areaArr[userInfoInDB.area]}}</text>
   <text wx:if='{{userInfoInDB.area===null}}' class = 'area'>你还没有填写地区哦~</text>
@@ -27,6 +26,10 @@
       <view class='menuNum' data-idx='{{index}}'>{{item.value}} ></view>
     </view>
   </block>
+  <view class='menuItem' bindtap="tomessage">
+    <view class='menuTitle'>消息通知</view>
+    <text class='unreadnum' wx:if='{{unreadnum!=0}}'>{{unreadnum}}</text>
+  </view>
 </view>
 <view class="aboutBtn">
   <button id='feedbackBtn' open-type="feedback" >意见反馈</button>

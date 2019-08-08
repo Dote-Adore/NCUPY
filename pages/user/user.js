@@ -31,6 +31,7 @@ Page({
       '医学院',
       '其他'
     ],
+    unreadnum: 0,
   },
 
   onLoad: function() {
@@ -52,9 +53,24 @@ Page({
       hasUserInfo: true,
       userid: app.globalData.userid
     })
+    this.getNumreadMessagenum()
   },
-
-
+  getNumreadMessagenum(){
+    var that = this
+    wx.request({
+      url: app.globalData.url+'/message/getunreadnum',
+      data:{
+        userid:app.globalData.userid,
+      },
+      success(res) {
+       if(res.data.success){
+         that.setData({
+           unreadnum:res.data.unreadnum,
+         })
+       }
+      }
+    })
+  },
   toInfo(e) {
     var idx = e.target.dataset.idx;
     var data = {
@@ -122,7 +138,6 @@ Page({
   updateUserinfo() {
     var that = this.data
     if (that.userInfoInDB.avatar != app.globalData.userInfo.avatarUrl) {
-      console.log(app.globalData.userInfo.avatarUrl);
       wx.request({
         url: app.globalData.url + '/user/edituserInfo',
         data: {

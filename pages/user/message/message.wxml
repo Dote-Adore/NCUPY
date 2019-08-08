@@ -1,6 +1,7 @@
 <!--pages/user/message/message.wxml-->
 <block wx:for='{{messageList}}'  wx:key="{{index}}">
   <view wx:if="{{item.type===0}}"class='messageCard'>
+  <view wx:if="{{!item.hasRead}}" class='unreadtag'></view>
     <view class='title'>
       {{item.title}}
     </view>
