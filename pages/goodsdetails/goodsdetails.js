@@ -27,7 +27,14 @@ Page({
     tagsArray: [],
     popupanim_opc: null,
     popupanim: null,
-    blurPosY: app.globalData.windowHeight*(-1)
+    blurPosY: app.globalData.windowHeight*(-1),
+
+
+    //消息回复
+    respuser:'',
+    respuserid:0,
+    respid:0,
+    needAddresponeUser: false
   },
   onLoad: function(options) {
     var that = this
@@ -122,8 +129,39 @@ Page({
     var that = this;
     that.setData({
       iscommentting: true,
-      commentContent: that.data.commentContent
+      commentContent: that.data.commentContent,
+      respuser:'',
     })
+    this.data.needAddresponeUser = false
+    this.data.respid = 0
+    this.data.respuserid = 0
+  },
+  // 评论回复
+  toResponse(e){
+    console.log(e);
+    var data = e.currentTarget.dataset.item;
+    if(data.userid === app.globalData.userid){
+      this.toDeleteComments(e)
+      return;
+    }
+    this.setData({
+      commentContent: this.data.commentContent,
+      iscommentting:true,
+      respuser: "回复 "+data.username+": ",
+    })
+
+    //如果回复的评论是最外层评论，则对此评论回复
+    if(data.respid === 0)
+      this.data.respid = data.id
+    else
+      this.data.respid = data.respid  //否则对此评论的父评论回复
+    this.data.respuserid = data.userid  //对该评论进行回复，此值是为了给被评论用户发送 评论通知
+
+    //如果被回复者不是最外层评论，则在回复内容之前需要添加：“回复XXX：”
+    if (data.respid!=0)
+      this.data.needAddresponeUser = true
+    else
+      this.data.needAddresponeUser = false
   },
   loseFocus() {
     console.log("loseFoucs");
@@ -143,6 +181,12 @@ Page({
       })
       return;
     };
+    // 如果需要前缀
+    var commentcontent
+    if (this.data.needAddresponeUser)
+      commentcontent = this.data.respuser + this.data.commentContent
+    else
+      commentcontent = this.data.commentContent
     wx.showLoading({
       title: '正在发送',
     });
@@ -151,7 +195,13 @@ Page({
       data: {
         userid: app.globalData.userid,
         publishid: that.data.productInfo.id,
-        content: that.data.commentContent
+        content: commentcontent,
+        mainimgsrc: that.data.productInfo.mainimgsrc,
+        publishcontent: that.data.productInfo.introduction,
+        respid:that.data.respid,
+        respuserid: that.data.respuserid,
+        publishuserid: that.data.productInfo.userid,
+        username: app.globalData.userInfo.nickName
       },
       success: res => {
         console.log(res);
@@ -234,6 +284,10 @@ Page({
 
 
   toDeleteComments(e) {
+    //如果这是本人发布的评论或者这个发布是本人的发布
+    if (e.currentTarget.dataset.item.userid != app.globalData.userid &&this.data.productInfo.userid!=app.globalData.userid){
+      return;
+    }
     var that = this
     wx.showModal({
       title: '',
@@ -243,7 +297,7 @@ Page({
           wx.request({
             url: app.globalData.url + '/comments/delete',
             data: {
-              id: e.currentTarget.dataset.id
+              id: e.currentTarget.dataset.item.id
             },
             success: res => {
               if (res.data) {
@@ -262,11 +316,11 @@ Page({
 
 
   //滚动
-  onPageScroll(e){
-    this.setData({
-      blurPosY: e.scrollTop * (-1) - this.data.height + 60
-    })
-  },
+  // onPageScroll(e){
+  //   this.setData({
+  //     blurPosY: e.scrollTop * (-1) - this.data.height + 60
+  //   })
+  // },
 
   //弹窗
   showDialogBtn() {

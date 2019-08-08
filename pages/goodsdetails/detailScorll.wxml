@@ -26,21 +26,21 @@
     <!-- 如果评论为空 -->
     <view wx:if="{{!commentarr[0]}}" class='defaultComments'>没有评论哦，快来抢个沙发吧！</view>
     <block wx:for="{{commentarr}}" wx:key="{{item.id}}">
-
-    <!-- 如果不是本用户并且不是发布者 -->
-      <view wx:if='{{item.userid!=myUserid&&productInfo.userid!=myUserid}}' class="comment-class">
+    <!-- 第一层评论 -->
+      <view wx:if="{{item.respid===0}}" data-item="{{item}}" bindlongtap="toDeleteComments" bindtap="toResponse" class="comment-class">
         <image class='commentAvatar' src="{{item.useravatar}}" mode="aspectFill" />
         <view class="commentuser">{{item.username}}</view>
         <view class="commentvalue">{{item.content}}</view>
         <view class="commenttime">{{item.time}}</view>
         <view class="divLine"></view>
       </view>
-      <!--如果是本用户或者是发布者，长按可以删除-->
-      <view wx:if='{{item.userid===myUserid||productInfo.userid===myUserid}}' data-id="{{item.id}}" bindlongtap="toDeleteComments" class="comment-class">
-        <image class='commentAvatar' src="{{item.useravatar}}" mode="aspectFill" />
-        <view class="commentuser">{{item.username}}</view>
-        <view class="commentvalue">{{item.content}}</view>
-        <view class="commenttime">{{item.time}}</view>
+        <!-- 第二层评论 -->
+      <view class='comment-class' id='innercomment-class' wx:for='{{commentarr}}' wx:for-item='inneritem'wx:if='{{inneritem.respid===item.id}}'
+         data-item="{{inneritem}}" bindlongtap="toDeleteComments" bindtap="toResponse" class="comment-class">
+        <image class='commentAvatar' id='innercommentAvatar' src="{{inneritem.useravatar}}" mode="aspectFill" />
+        <view class="commentuser">{{inneritem.username}}</view>
+        <view class="commentvalue" id='innercommentvalue'>{{inneritem.content}}</view>
+        <view class="commenttime">{{inneritem.time}}</view>
         <view class="divLine"></view>
       </view>
     </block>

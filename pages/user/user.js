@@ -48,9 +48,10 @@ Page({
       return;
     }
     this.requestTheDetails();
+    this.data.hasUserInfo = true,
     this.setData({
       userInfoInWechat: app.globalData.userInfo,
-      hasUserInfo: true,
+
       userid: app.globalData.userid
     })
     this.getNumreadMessagenum()
@@ -113,18 +114,18 @@ Page({
     })
   },
 
-  toUserHome() {
-    var that = this
-    wx.navigateTo({
-      url: '/pages/userHome/userHome',
-      success: res => {
-        res.eventChannel.emit('acceptDataFromOpenerPage', {
-          userid: app.globalData.userid,
-          avatarUrl: that.data.userInfo.avatarUrl
-        })
-      }
-    })
-  },
+  // toUserHome() {
+  //   var that = this
+  //   wx.navigateTo({
+  //     url: '/pages/userHome/userHome',
+  //     success: res => {
+  //       res.eventChannel.emit('acceptDataFromOpenerPage', {
+  //         userid: app.globalData.userid,
+  //         avatarUrl: that.data.userInfo.avatarUrl
+  //       })
+  //     }
+  //   })
+  // },
   toEditUserInfo(e) {
     var that = this.data.userInfoInDB
     wx.navigateTo({

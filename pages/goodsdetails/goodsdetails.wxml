@@ -2,13 +2,13 @@
 
 
 <!-- 模糊 -->
-<view id='blurBtn'>
+<!-- <view id='blurBtn'>
   <view class='content-blurred'>
     <view style='transform: translate3d(0px, {{blurPosY}}px, 0px);'>
       <include src="detailScorll.wxml" />
     </view>
   </view>
-</view>
+</view> -->
 
 <view wx:if="{{!iscommentting}}" class="bottom-bar">
   <view class='bottomBtns' id='collectBtn' bindtap='toCollect'>
@@ -27,6 +27,7 @@
 
 
 <view wx:if="{{iscommentting}}" class="bottom-bar">
+  <view wx:if="{{respuser!=''}}" style="margin-left:10px; min-width:300px">{{respuser}}</view>
   <input value="{{commentContent}}" class="comment-input" bindblur="loseFocus" confirm-type="send" bindinput="inputComments" bindconfirm="sendComments" style="width:{{WDWidth-110}}px" />
   <view class="bottomBtns" id="sendBtn" bindtap="sendComments"> 发送</view>
 </view>

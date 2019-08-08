@@ -1,15 +1,16 @@
 <!--pages/user/message/message.wxml-->
-<block wx:for='{{messageList}}'  wx:key="{{index}}">
-  <view wx:if="{{item.type===0}}"class='messageCard'>
-  <view wx:if="{{!item.hasRead}}" class='unreadtag'></view>
+<block wx:for='{{messageList}}' wx:key="{{index}}">
+  <!-- type为0表示处罚结果通知 -->
+  <view wx:if="{{item.type===0}}" class='messageCard'>
+    <view wx:if="{{!item.hasRead}}" class='unreadtag'></view>
     <view class='title'>
       {{item.title}}
     </view>
     <view class='time'>
       {{item.time}}
     </view>
-    <text class='content'style="color:gray">
-      违规商品: 
+    <text class='content'>
+      <text  style="color:gray">违规商品: </text> 
     </text>
     <view class='goodsoverview'>
       <image src="{{item.imgsrc}}" class="imgoverview" mode="aspectFill"></image>
@@ -29,5 +30,31 @@
     <text class='content'>
       <text style="color:gray"decode="true">详&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;情： </text>{{item.remark}}
     </text>
+  </view>
+  <!-- type为2表示评论消息通知 -->
+  <view wx:if="{{item.type===2}}" class='messageCard' data-publishid="{{item.remark.publishid}}" bindtap="topublishdetails">
+    <view wx:if="{{!item.hasRead}}" class='unreadtag'></view>
+    <view class='title'>
+      {{item.title}}
+    </view>
+    <view class='time'>
+      {{item.time}}
+    </view>
+    <text class='content'>
+      <text style="color:gray"decode="true">回复者&nbsp;&nbsp;&nbsp;: </text>{{item.remark.username}}
+    </text>
+    <text class='content'>
+      <text style="color:gray">回复内容: </text>{{item.content}}
+    </text>
+    <text class='content'>
+      <text  style="color:gray">商品内容: </text> 
+    </text>
+    <view class='goodsoverview'>
+      <image src="{{item.imgsrc}}" class="imgoverview" mode="aspectFill"></image>
+      <view id='limitLine-1' class='goodsintro'>
+        {{item.content2}}
+      </view>
+    </view>
+
   </view>
 </block>
