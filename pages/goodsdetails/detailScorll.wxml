@@ -10,6 +10,10 @@
         <image class="goodsimage" src="{{item}}" mode="widthFix" data-idx="{{index}}" bindtap="handleImagePreview"></image>
       </block>
     </view>
+    <!-- 举报 -->
+    <view wx:if='{{!isowner}}' class='report'>
+    <text  bindtap="toReport">发布内容违规？去举报</text>
+    </view>
   </view>
 
   <!-- 发布者信息 -->

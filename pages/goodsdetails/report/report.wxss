@@ -1,0 +1,43 @@
+/* pages/goodsdetails/report/report.wxss */
+.list{
+  text-align:center;
+  display: block;
+  padding: 10px;
+}
+.reportReason{
+  height: 50px;
+  line-height: 50px;
+  box-shadow: 0 0px 5px #E4E7ED;
+  background-color: white;
+  padding: 0 10px 0 10px;
+  margin: 10px;
+  width: auto;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px #E4E7ED solid
+}
+.reportReason:active{
+  background-color: black;
+}
+.remark{
+  padding: 10px;
+}
+textarea{
+  border: 1px #DCDFE6 solid;
+  padding: 10px;
+  width: auto;
+  margin:10px 0 10px 0;
+  border-radius: 5px;
+}
+button{
+  width: 600rpx;
+  border-radius: 30px;
+  background-color: #409EFF;
+  color: white;
+}
+button:after{
+  border: none
+}
+.btn_hover{
+  background-color: #66B1FF
+}

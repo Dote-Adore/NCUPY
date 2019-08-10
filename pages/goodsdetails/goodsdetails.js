@@ -366,4 +366,15 @@ sell(){
     },2000)
     })
 },
+// 举报
+toReport(){
+  var that = this
+  console.log("report");
+  wx.navigateTo({
+    url: 'report/report',
+    success: function (res) {
+      res.eventChannel.emit('acceptDataFromOpenerPage', { publishid:that.data.productInfo.id})
+    }
+  })
+}
 })

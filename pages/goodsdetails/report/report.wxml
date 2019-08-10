@@ -1,0 +1,13 @@
+<!--pages/goodsdetails/report/report.wxml-->
+<view class='list'>
+  <view class='reportReason' wx:for="{{reportReason}}" style="background-color:{{item.selected? '#409EFF':'white'}};color:{{item.selected? 'white':'#303133'}}" data-idx="{{index}}" bindtap="toSelected">
+    <text>{{item.title}}</text>
+  </view>
+</view>
+<view class='remark'>
+<text><text style="color:#909399">（选填）</text>请填写详情:</text>
+  <textarea value='{{remark}}' bindinput="inputRemark">
+  </textarea>
+</view>
+
+<button hover-class='btn_hover' bindtap="toReport">举报</button>
