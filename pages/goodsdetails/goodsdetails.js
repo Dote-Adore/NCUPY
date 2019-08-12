@@ -28,8 +28,15 @@ Page({
     popupanim_opc: null,
     popupanim: null,
     blurPosY: app.globalData.windowHeight*(-1),
-
-
+    //获取发布者的信息
+    publishuserInfoinDB: '',
+    areaArr: [
+      '天健园',
+      '休闲区',
+      '医学院',
+      '其他'
+    ],
+    areaIndex: -1,
     //消息回复
     respuser:'',
     respuserid:0,
@@ -42,7 +49,8 @@ Page({
     this.getImagesUrl();
     this.isCollected();
     this.getComments();
-    this.toTagArray()
+    this.toTagArray();
+    this.getpublishuserinfo();
     wx.getSystemInfo({
       success: function(res) {
         console.log(res);
@@ -99,7 +107,22 @@ Page({
       }
     })
   },
-
+  //获取发布者的信息
+  getpublishuserinfo(){
+    var that = this
+    wx.request({
+      url: app.globalData.url + '/getUserDetails',
+      data: {
+        id: that.data.productInfo.userid
+      },
+      success: res => {
+        that.data.publishuserInfoinDB = res.data.userinfo
+        that.setData({
+          areaIndex: res.data.userinfo.area
+        })
+      }
+    })
+  },
 
   toTagArray() {
     var data = this.data.productInfo.commontags
@@ -375,6 +398,20 @@ toReport(){
     success: function (res) {
       res.eventChannel.emit('acceptDataFromOpenerPage', { publishid:that.data.productInfo.id})
     }
+  })
+},
+//获取联系方式
+getContactInfo(){
+  var that = this
+  let phonenum = that.data.publishuserInfoinDB.phonenumber
+  if (phonenum === null||phonenum === undefined||phonenum === ''){
+    wx.showModal({
+      content:'获取对方联系方式失败，请评论告诉TA完善个人资料吧~'
+    })
+    return;
+  }
+  wx.makePhoneCall({
+    phoneNumber: that.data.publishuserInfoinDB.phonenumber
   })
 }
 })

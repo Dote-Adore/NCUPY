@@ -25,9 +25,9 @@
   line-height: 20px;
   border-radius: 3px;
   background-color: #FF4500;
-  width: 60px;
   color: white;
   text-align: center;
+  padding: 0 5px 0 5px;
   margin: 10px 15px 0 0;
 }
 .information{

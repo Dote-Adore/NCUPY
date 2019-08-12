@@ -5,7 +5,7 @@ Page({
   data: {
     url: app.globalData.url,
     maincolor: app.globalData.maincolor,
-
+    userInfoInDB: '',
     publishid: 0,
     images: [],
     price: '',
@@ -51,6 +51,20 @@ Page({
       that.setData({
         tagarray: '>'
       })
+    this.getuserinfo();
+  },
+  getuserinfo(){
+    var that = this
+    wx.request({
+      url: app.globalData.url +'/getUserDetails',
+      data:{
+        id: app.globalData.userid
+      },
+      success: res =>{
+        that.data.userInfoInDB = res.data.userinfo
+      }
+    })
+    console.log(that.data.userInfoInDB)
   },
   getIntroduction(e) {
     this.data.introduction = e.detail.value;
@@ -110,6 +124,12 @@ Page({
   startPublish() { //发布信息
     if (app.globalData.userInfo === '') {
       login.authorization();
+      return;
+    }
+    if (this.data.userInfoInDB.phonenumber === '' || this.data.userInfoInDB.phonenumber === null || this.data.userInfoInDB.phonenumber === undefined){
+      wx.showModal({
+        title: '请在我的-编辑个人资料中完善个人信息再发布噢~'
+      })
       return;
     }
     console.log(this.data.tagarray)

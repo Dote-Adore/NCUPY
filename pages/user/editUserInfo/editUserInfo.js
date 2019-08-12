@@ -50,6 +50,12 @@ Page({
     this.data.enrollmentyear = e.detail.value;
   },
   confirm(){
+    if (this.data.phonenumber === '' || this.data.phonenumber===null){
+      wx.showModal({
+        content: '请填写您的联系方式，方便卖家联系你噢~',
+      })
+      return
+    }
     wx.showLoading({
       title: '正在更改...',
     })

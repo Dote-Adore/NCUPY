@@ -10,11 +10,11 @@
     <input type="number" class="input" bindinput="schoolIDinput" maxlength='10' value='{{schoolid}}'></input>
   </view>
    <view class="item text ">
-    <text class="itemName input-name">电话号码：</text>
+    <text class="itemName input-name"><text style="color:red">*</text>联系方式：</text>
     <input type="number" maxlength='11' class="input"bindinput="phoneNuminput" value='{{phonenumber}}'></input>
   </view>
   <view class="item text ">
-    <text class="itemName input-name" >入学年份：</text>
+    <text class="itemName input-name" > 入学年份：</text>
     <input type="number" class="input"maxlength='4'bindinput="enrollmentYearInput"value='{{enrollmentyear}}' ></input>
   </view>
 </view>

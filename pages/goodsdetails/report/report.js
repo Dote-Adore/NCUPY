@@ -71,7 +71,7 @@ Page({
       success: res=>{
         if(res.data.success){
           wx.showModal({
-            title: '举报成功',
+            title: '举报成功，请等待工作人员的回复',
             success(res) {
               wx.navigateBack({})
             }

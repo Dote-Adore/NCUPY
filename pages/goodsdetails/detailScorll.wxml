@@ -4,6 +4,7 @@
     <block  wx:for='{{tagsArray}}'  wx:key="{{index}}">
      <view wx:if="{{tagsArray[0]}}" class='tags'>{{item}}</view>
     </block>
+    <view wx:if='{{areaIndex>=0}}' class='tags' style="background-color:#409EFF">发布于{{areaArr[areaIndex]}}</view>
     <text class="information">{{productInfo.introduction}}</text>
     <view class="images-class">
       <block wx:for="{{goodsimagesurl}}" wx:key="{{index}}">

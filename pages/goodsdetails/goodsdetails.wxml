@@ -20,7 +20,7 @@
     <image class='icon' src="/resoures/icon/comment.png" mode='widthFix'></image>
     <view>评论</view>
   </view>
-  <view class='bottomBtns' id='purchaseBtn' wx:if='{{!isowner}}'>联系TA</view>
+  <view class='bottomBtns' id='purchaseBtn' wx:if='{{!isowner}}' bindtap="getContactInfo">联系TA</view>
   <view class='bottomBtns' id='manageBtn' wx:if='{{isowner}}' bindtap="toManage">管理</view>
 </view>
 
