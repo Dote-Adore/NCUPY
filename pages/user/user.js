@@ -45,6 +45,7 @@ Page({
   onShow: function() {
     if (app.globalData.userInfo === '') {
       login.login();
+      login.authorization();
       return;
     }
     this.requestTheDetails();
