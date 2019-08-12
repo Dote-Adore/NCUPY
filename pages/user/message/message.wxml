@@ -31,6 +31,40 @@
       <text style="color:gray"decode="true">详&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;情： </text>{{item.remark}}
     </text>
   </view>
+    <!-- type为1表示举报结果通知 -->
+  <view wx:if="{{item.type===1}}" class='messageCard' data-publishid="{{item.remark.publishid}}" bindtap="topublishdetails">
+    <view wx:if="{{!item.hasRead}}" class='unreadtag'></view>
+    <view class='title'>
+      {{item.title}}
+    </view>
+    <view class='time'>
+      {{item.time}}
+    </view>
+    <text class='content'>
+      <text style="color:gray"decode="true">举报时间: </text>{{item.remark.reporttime}}
+    </text>
+    <text class='content'>
+      <text style="color:gray">举报对象: </text>{{item.remark.reportedname}}
+    </text>
+    <text class='content'>
+      <text style="color:gray">审核结果: </text>{{item.remark.result}}
+    </text>
+    <text class='content'>
+      <text style="color:gray">处理方式: </text>{{item.remark.method}}
+    </text>
+    <text class='content'>
+    {{item.content}}
+    </text>
+    <text class='content'>
+      <text  style="color:gray">商品内容: </text> 
+    </text>
+    <view class='goodsoverview'>
+      <image src="{{item.imgsrc}}" class="imgoverview" mode="aspectFill"></image>
+      <view id='limitLine-1' class='goodsintro'>
+        {{item.content2}}
+      </view>
+    </view>
+  </view>
   <!-- type为2表示评论消息通知 -->
   <view wx:if="{{item.type===2}}" class='messageCard' data-publishid="{{item.remark.publishid}}" bindtap="topublishdetails">
     <view wx:if="{{!item.hasRead}}" class='unreadtag'></view>
@@ -55,6 +89,5 @@
         {{item.content2}}
       </view>
     </view>
-
   </view>
 </block>

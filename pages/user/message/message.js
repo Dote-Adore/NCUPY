@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // type0: 处罚通知 type1：举报结果通知
+    // type0: 处罚通知 type1：举报结果通知 type2: 消息回复通知
     messageList: []
   },
   onLoad: function (options) {

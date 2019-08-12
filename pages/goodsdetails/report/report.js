@@ -76,6 +76,23 @@ Page({
               wx.navigateBack({})
             }
           })
+        } else{
+          if (res.data.hasbeenreported){
+            wx.showModal({
+              title: '该商品已有人举报，请等候处理',
+              success(res) {
+                wx.navigateBack({})
+              }
+            })
+          }
+          else{
+            wx.showModal({
+              title: '发送出错',
+              success(res) {
+                wx.navigateBack({})
+              }
+            })
+          }
         }
       }
     })
