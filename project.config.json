@@ -50,7 +50,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -126,6 +126,13 @@
 					"id": -1,
 					"name": "report",
 					"pathName": "pages/goodsdetails/report/report",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "about",
+					"pathName": "pages/user/about/about",
 					"scene": null
 				}
 			]

@@ -164,5 +164,10 @@ Page({
     wx.navigateTo({
       url: 'message/message',
     })
+  },
+  toAbout(){
+    wx.navigateTo({
+      url: 'about/about',
+    })
   }
 })

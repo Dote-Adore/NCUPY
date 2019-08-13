@@ -12,11 +12,11 @@
       "pages/index/category/category",
       "pages/goodsdetails/goodsdetails",
       "pages/goodsdetails/report/report",
-      "pages/userHome/userHome",
       "pages/common/authorization/authorization",
       "pages/user/editUserInfo/editUserInfo",
       "pages/publish/edit/edit",
-      "pages/user/message/message"
+      "pages/user/message/message",
+      "pages/user/about/about"
 
 
   ],

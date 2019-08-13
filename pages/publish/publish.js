@@ -229,7 +229,14 @@ Page({
         index: i
       },
       success(res) {
-        console.log(res.data);
+        if(res.statusCode > 300 || res.statusCode <200){
+          wx.showModal({
+            title: '发布失败',
+            content: '错误：' + res.errMsg,
+          })
+          wx.hideLoading();
+          return;
+        }
         console.log(i);
         if (i === that.data.images.length - 1) {
           wx.hideLoading();

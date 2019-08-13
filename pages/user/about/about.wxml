@@ -1,0 +1,14 @@
+<view class='logo'>
+</view>
+<view class='version'>
+版本：1.0.0 beta
+</view>
+<view class='thanks'>
+<text>
+特别鸣谢：chmer
+鸣谢
+测试： 77、噫吁嚱、拾一
+设计： Easter、
+技术支持： Rookie、维尔希宁
+</text>
+</view>
