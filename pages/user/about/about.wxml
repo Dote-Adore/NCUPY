@@ -1,14 +1,50 @@
-<view class='logo'>
-</view>
-<view class='version'>
+<view wx:if='{{!showEgg}}'>
+<image class='logo' src="/resoures/icon/logo.png" mode='aspectFit'></image>
+<view class='toCenter' id='name'>同学们的杂货铺</view>
+<view class='toCenter' id='version'>
 版本：1.0.0 beta
 </view>
+<view class=' toCenter'>
+  <text decode='true' style="font-size:16px" bindtap="toEgg">宠与崇&emsp;&emsp;制作</text>
+</view>
 <view class='thanks'>
-<text>
-特别鸣谢：chmer
-鸣谢
-测试： 77、噫吁嚱、拾一
-设计： Easter、
+<text decode='{{true}}'>
+鸣&emsp;&emsp;谢
+测&emsp;&emsp;试： 77、噫吁嚱、拾一、大米提莫、💧
+设&emsp;&emsp;计： Easter
 技术支持： Rookie、维尔希宁
 </text>
-</view> 
+</view>
+<view class='aboutMe'>
+<image src="/resoures/icon/github.png" mode='aspectFit' class='githubIcon'></image>
+<view style='padding-left:10px;height:30px;line-height:30px;'  bindlongtap='copy'>{{githubUrl}}</view>
+</view>
+</view>
+<!-- 彩蛋 -->
+<view wx:else  class="toCenter"  id='egg'>
+<text decode='true'>
+💗💗💗💗💗💗💗💗💗💗💗💗💗
+💗💗💗💗💗💗💗💗💗💗💗💗💗
+💗💗💗💗💗💛💛💛💗💗💗💗💗
+💗💗💗💗💛🧡🧡🧡💛💗💗💗💗
+💗💗💗💛🧡🧡🧡🧡🧡💛💗💗💗
+💗💗💛🧡🧡🧡🧡🧡🧡🧡💛💗💗
+💗💗💛💙💙💙💙💙💙💙💛💗💗
+💗💛💛💙💙💙💙💙💙💙💛💛💗
+💗💛💙💙💙💙💙💙💙💙💙💛💗
+💗💛💚💚💚💚💚💚💚💚💚💛💗
+💗💛💚💚💚感谢使用💚💚💚💛💗
+💗💛💚💚💚💚💚💚💚💚💚💛💗
+💗💛🖤🖤🖤🖤🖤🖤🖤🖤🖤💛💗
+💗💛🖤🖤🖤🖤🖤🖤🖤🖤🖤💛💗
+💗💛🖤🖤🖤🖤🖤🖤🖤🖤🖤💛💗
+💗💗💛💜💜💜💜💜💜💜💛💗💗
+💗💗💛💜💜💜💜💜💜💜💛💗💗
+💗💗💗💛💛💜💜💜💛💛💗💗💗
+💗💗💗💗💛💛💛💛💛💗💗💗💗
+💗💗💗💗💗💗💗💗💗💗💗💗💗
+
+
+
+</text>
+</view>

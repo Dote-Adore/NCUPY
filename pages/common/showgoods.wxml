@@ -30,5 +30,8 @@
     </view>
   </block>
 </view>
-
+<view class='noData' wx:if="{{!productInfo[0]&&productInfo!==''}}">
+<image src='/resoures/cry.gif' class="cryIcon"></image>
+<text class='noDataText'>呜呜呜~啥也没有找到</text>
+</view>
 <include src="/pages/common/pulluploading/pulluploading.wxml"/>

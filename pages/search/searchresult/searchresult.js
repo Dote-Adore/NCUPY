@@ -10,7 +10,7 @@ Page({
     page:0,
     windowHeight: 0,
     content:'dasdadsadfd',
-    productInfo:null,
+    productInfo:'',
     showThis:false
   },
 
@@ -29,9 +29,6 @@ Page({
     that.getList()
   },
   getList(){
-    wx.showLoading({
-      title: '玩命加载中...',
-    })
     var that = this
     var data = this.data
     wx.request({
@@ -41,9 +38,15 @@ Page({
         page:data.page
       },
       success:res=>{
-        wx.hideLoading();
         that.setData({
           productInfo:res.data
+        })
+      },
+      fail: (res)=>{
+        wx.hideLoading();
+        wx.showToast({
+          title: '啊咧？！好像没连上网ORZ',
+          icon: 'none'
         })
       }
     })

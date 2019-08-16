@@ -1,4 +1,4 @@
 <include src="/pages/common/showgoods.wxml"/>
-<view class='noResult' style="margin-top:{{windowHeight/3}}px" wx:if='{{productInfo!=null&&productInfo.length==0}}'>
-噢哦~没有找到你想要的发布呢，请检查搜索关键词后重试吧~
+<view class='noResult' wx:if="{{productInfo!==''&&productInfo.length==0}}">
+请重新告诉我你想搜索的内容噢~
 </view>

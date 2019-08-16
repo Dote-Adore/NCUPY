@@ -56,3 +56,18 @@ page{
   margin-right:5px;
   border-radius: 5px;
 }
+.noData{
+  text-align: center;
+}
+.cryIcon{
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  margin-top: 40px;
+}
+.noDataText{
+  color: #606266;
+  display: block;
+  font-size: 17px;
+
+}

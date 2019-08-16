@@ -1,6 +1,6 @@
 <view class="search-class"style="background-color:{{maincolor}}">
 <view class="searchBar" > 
-  <navigator url="/pages/search/search">搜索宝贝</navigator>
+  <navigator url="/pages/search/search"> <image src="/resoures/icon/search.png" class='searchIcon'></image>搜索宝贝</navigator>
 </view>
 </view>
 <view class='category-background' style="background:linear-gradient(to bottom, {{maincolor}} ,{{maincolor}}, #EDEDED);">

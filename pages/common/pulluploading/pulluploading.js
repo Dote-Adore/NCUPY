@@ -20,7 +20,8 @@ function loadingMore(that){
         that.data.page--;
         that.setData({
           productInfo: productInfo,
-          showThis: false
+          showThis: false,
+          noMore:true
         })
         return;
       }

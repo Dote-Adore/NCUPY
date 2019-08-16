@@ -1,3 +1,7 @@
 <view class="loadmore" hidden='{{!showThis}}' bindtap='clickLoadMore'>
     <text>玩命加载中...</text>
 </view>
+<view class="loadmore" wx:if='{{noMore}}'>
+<image src="/resoures/slaver.gif" class="noMoreGif"></image>
+  <text>哦噢，你已经看完了橱窗内所有的物品了呢~</text>
+</view>

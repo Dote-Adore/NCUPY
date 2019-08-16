@@ -1,12 +1,15 @@
 <view class='div'>
   <view class="item text">
-    <text class="itemName ">生活地区：</text>
-    <picker bindchange="areaChange" value="{{areaIdx}}" class="areaPicker" range="{{areaArr}}">
+    <text class="itemName "><text style="color:red">*</text>生活地区：</text>
+    <picker wx:if='{{areaIdx>=0}}' bindchange="areaChange" value="{{areaIdx}}" class="areaPicker" range="{{areaArr}}">
     {{areaArr[areaIdx]}}
+    </picker>
+    <picker wx:else bindchange="areaChange" value="{{areaIdx}}" class="areaPicker" range="{{areaArr}}">
+    请选择...
     </picker>
   </view>
   <view class="item text">
-    <text class="itemName input-name" decode="{{true}}"space="emsp">学&emsp;&emsp;号：</text>
+    <text class="itemName input-name" decode="{{true}}">&ensp;学&emsp;&emsp;号：</text>
     <input type="number" class="input" bindinput="schoolIDinput" maxlength='10' value='{{schoolid}}'></input>
   </view>
    <view class="item text ">
@@ -14,7 +17,7 @@
     <input type="number" maxlength='11' class="input"bindinput="phoneNuminput" value='{{phonenumber}}'></input>
   </view>
   <view class="item text ">
-    <text class="itemName input-name" > 入学年份：</text>
+    <text class="itemName input-name" decode="{{true}}" >&ensp;入学年份：</text>
     <input type="number" class="input"maxlength='4'bindinput="enrollmentYearInput"value='{{enrollmentyear}}' ></input>
   </view>
 </view>

@@ -1,6 +1,7 @@
-<view wx:if="{{goods===''}}" class="nodata">
-  这里空空如也~去其他地方逛逛吧！</view>
-
+<view wx:if="{{goods===''}}" class="nodata">这里空空如也~去其他地方逛逛吧！</view>
+<view wx:if="{{goods!=''&&basicData.name==='发布中'}}" class='tags'>
+Tips：将卖出的物品标记为[已卖出]，这样就不会再有人因为该闲置联系你噢~
+</view>
 <block wx:for="{{goods}}" wx:key="{{index}}">
   <view class="mainContainer">
     <view bindtap="toDetails" data-productdata="{{item}}">
@@ -9,7 +10,6 @@
       <view class="price">￥{{item.price}}</view>
       <view class="info" wx:if="{{basicData.name==='已卖出'}}">
         <image class="successIcon" src="/resoures/icon/success.png" mode="aspectFill"></image>交易成功</view>
-      <text class="info" wx:if="{{basicData.name==='发布中'}}" decode="true">留言{{item.commmentsNum}}</text>
     </view>
     <view class="btns">
       <view wx:if="{{basicData.name==='发布中'}}" class="Btn" data-info="{{item}}" bindtap="tosell">已卖出</view>

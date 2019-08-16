@@ -5,7 +5,10 @@ const app = getApp()
 Page({
 
   data: {
-    searchContent:''
+    searchContent:'',
+    page: 0,
+    noMore: false,
+    productInfo:null
   },
 
   /**

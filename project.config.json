@@ -49,6 +49,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 11,
 			"list": [
@@ -133,6 +137,13 @@
 					"id": -1,
 					"name": "about",
 					"pathName": "pages/user/about/about",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "category",
+					"pathName": "pages/index/category/category",
 					"scene": null
 				}
 			]

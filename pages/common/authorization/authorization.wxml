@@ -1,13 +1,13 @@
 <view class='textContain'>
 <view class='text'>同学你好！为了你能够完整地使用小程序的功能，你需要对此进行授权，我们将会仅使用你的头像和微信昵称来进行登录。我们不会拿取你的个人隐私。</view>
-<text style='font-size:15px;color:#909399'>
+<text style='font-size:13px;color:#909399'>
 
 使用前必读：
   1. 本平台为个人开发，不为任何公司效力，完全免费向同学们开放，<text style="color:black">不会向你索取任何费用。</text>
   2. 本平台只是可以让同学们更好的发布和查看自己与他人的闲置物品，平台内不支持交易，请同学们线下自行联系
   3. 网络信息真真假假，大家最好面对面进行校内交易，谨防上当受骗，发现违规商品请及时举报。<text style="color:black">如有财产损失，恕不负责。</text>
   4. 感谢同学们的使用与支持！个人制作不易，如有bug，还请见谅和反馈~
-  <text style="color:#000000; padding-top:10px; display:block">点击获取头像昵称则表示您已同意上述声明并开始使用本平台</text>
+  <!-- <text style="color:#000000; padding-top:10px; display:block">点击获取头像昵称则表示您已同意上述声明并开始使用本平台</text> -->
 </text>
 </view>
-<button open-type="getUserInfo" class="btn" bindgetuserinfo="getUserInfo" style="background-color:{{maincolor}}">获取头像昵称</button> 
+<button open-type="getUserInfo" class="btn" bindgetuserinfo="getUserInfo" style="background-color:{{maincolor}}">我同意上述声明，并授权使用头像昵称</button> 

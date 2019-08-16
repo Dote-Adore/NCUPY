@@ -11,7 +11,8 @@ Page({
     },
     WDHeight: app.globalData.windowHeight,
     WDWidth: app.globalData.windowWidth,
-    productInfo: ''
+    productInfo:'',
+    noMore:false
   },
   onLoad() {
     var that = this;
@@ -35,6 +36,9 @@ Page({
 
   onPullDownRefresh() {
     this.getGoods();
+    this.setData({
+      noMore:false
+    })
   },
 
   getGoods() {
@@ -50,12 +54,8 @@ Page({
           productInfo: res.data,
           page: 0
         })
+        wx.stopPullDownRefresh();
       }
-    })
-    wx.stopPullDownRefresh();
-    wx.showToast({
-      title: '刷新成功！',
-      icon: 'none'
     })
   },
 

@@ -5,10 +5,8 @@ Page({
     url: app.globalData.url,
     userid: app.globalData.userid,
     userInfoInWechat: '',
-    userInfoInDB: '',
+    userInfoInDB: undefined,
     sellingTotalPrice: "",
-    followNum: 0,
-    followerNum: 0,
     maincolor: app.globalData.maincolor,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -35,11 +33,13 @@ Page({
   },
 
   onLoad: function() {
-    this.requestTheDetails();
     var that = this
+    setTimeout(function(){
+      that.requestTheDetails();
+    },1000)
     setTimeout(function() {
       that.updateUserinfo();
-    }, 2000)
+    }, 4000)
   },
 
   onShow: function() {
@@ -107,8 +107,6 @@ Page({
           userInfoInDB: res.data.userinfo,
           menu: that.data.menu, //获取收藏等
           sellingTotalPrice: that.data.sellingTotalPrice,
-          followNum: res.data.followNum, //关注数
-          followerNum: res.data.followerNum //粉丝数
         })
         console.log(that.data.userInfoInDB);
       }

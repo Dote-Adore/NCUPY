@@ -29,7 +29,7 @@
     <view class="commentsTitle">留言</view>
     <view class="divLine"></view>
     <!-- 如果评论为空 -->
-    <view wx:if="{{!commentarr[0]}}" class='defaultComments'>没有评论哦，快来抢个沙发吧！</view>
+    <view wx:if="{{!commentarr[0]}}" class='defaultComments'><view><image style="width:110px;text-align:center" src="/resoures/icon/sofa.png" mode='widthFix'></image></view>沙发没人坐呢，快坐下来唠唠嗑~</view>
     <block wx:for="{{commentarr}}" wx:key="{{item.id}}">
     <!-- 第一层评论 -->
       <view wx:if="{{item.respid===0}}" data-item="{{item}}" bindlongtap="toDeleteComments" bindtap="toResponse" class="comment-class">
@@ -40,12 +40,19 @@
         <view class="divLine"></view>
       </view>
         <!-- 第二层评论 -->
-      <view class='comment-class' id='innercomment-class' wx:for='{{commentarr}}' wx:for-item='inneritem'wx:if='{{inneritem.respid===item.id}}'
-         data-item="{{inneritem}}" bindlongtap="toDeleteComments" bindtap="toResponse" class="comment-class">
+      <!-- <view class='comment-class' id='innercomment-class' wx:for='{{commentarr}}' wx:key='id' wx:for-item='inneritem'wx:if='{{inneritem.respid===item.id}}' data-item="{{inneritem}}" bindlongtap="toDeleteComments" bindtap="toResponse">
         <image class='commentAvatar' id='innercommentAvatar' src="{{inneritem.useravatar}}" mode="aspectFill" />
         <view class="commentuser">{{inneritem.username}}</view>
         <view class="commentvalue" id='innercommentvalue'>{{inneritem.content}}</view>
         <view class="commenttime">{{inneritem.time}}</view>
+        <view class="divLine"></view>
+      </view> -->
+      <view class='comment-class' id='innercomment-class' wx:for='{{commentarr}}' wx:for-item="inneritem" wx:for-index='innerindex' wx:key="id"
+         data-item="{{commentarr[commentarr.length-1-innerindex]}}" bindlongtap="toDeleteComments" bindtap="toResponse"wx:if='{{commentarr[commentarr.length-1-innerindex].respid===item.id}}'>
+        <image class='commentAvatar' id='innercommentAvatar' src="{{commentarr[commentarr.length-1-innerindex].useravatar}}" mode="aspectFill" />
+        <view class="commentuser">{{commentarr[commentarr.length-1-innerindex].username}}</view>
+        <view class="commentvalue" id='innercommentvalue'>{{commentarr[commentarr.length-1-innerindex].content}}</view>
+        <view class="commenttime">{{commentarr[commentarr.length-1-innerindex].time}}</view>
         <view class="divLine"></view>
       </view>
     </block>

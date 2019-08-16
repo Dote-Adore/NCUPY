@@ -12,8 +12,13 @@
   line-height: 40px;
   background-color: #EDEDED;
   color: #555555;
-  border-radius: 4px
+  border-radius: 4px;
 
+}
+.searchIcon{
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
 }
 .category-background{
   position: absolute;

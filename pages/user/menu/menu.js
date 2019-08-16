@@ -4,7 +4,7 @@ var trade = require('../../../utils/trade.js')
 Page({
   data: {
     basicData:'',
-    goods:'',
+    goods:null,
     collect: {
       name: "collect",
       value: "收藏",
@@ -39,13 +39,6 @@ Page({
       this.getTrade();
 
   },
-  //刷新
-  onPullDownRefresh(){
-    if (this.data.basicData.name === '发布中')
-      this.getPublish()
-    else if (this.data.basicData.name === '我的收藏')
-      this.getcollect();
-  },
 
 //发布中
   getPublish(){
@@ -61,11 +54,6 @@ Page({
         that.setData({
           goods:res.data
         });
-        wx.stopPullDownRefresh();
-        wx.showToast({
-          title: '刷新成功！',
-          icon: 'none'
-        })
       }
     })
   },
@@ -87,7 +75,6 @@ Page({
         that.setData({
           goods:res.data
         })
-        wx.stopPullDownRefresh();
       }
     })
   },

@@ -9,12 +9,13 @@ Page({
         '医学院',
         '其他'
     ],
-    areaIdx:0,
+    areaIdx:null,
     schoolid:'',
     phonenumber:'',
     enrollmentyear:'',
     userinfo:'',
-    maincolor:app.globalData.maincolor
+    maincolor:app.globalData.maincolor,
+    chooseTag:'请选择...'
   },
 
   onLoad(options) {
@@ -50,6 +51,12 @@ Page({
     this.data.enrollmentyear = e.detail.value;
   },
   confirm(){
+    if (!(this.data.areaIdx >= 0)){
+      wx.showModal({
+        content: '请选择您所在的地区，方便卖家联系你噢~',
+      })
+      return
+    }
     if (this.data.phonenumber === '' || this.data.phonenumber===null){
       wx.showModal({
         content: '请填写您的联系方式，方便卖家联系你噢~',

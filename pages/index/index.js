@@ -21,7 +21,8 @@ Page({
     ],
     maincolor: app.globalData.maincolor,
     productInfo:'',
-    page:0
+    page:0,
+    noMore:false
   },
   onLoad(){
     this.getGoods();
@@ -32,13 +33,17 @@ Page({
   },
   onPullDownRefresh(){
     console.log("refresh!");
+    this.setData({
+      noMore:false
+    })
     this.getGoods();
   },
   onShow(){
   },
   getGoods(){
     wx.showLoading({
-      title: '玩命加载中',
+      mask: true,
+      title: '嘿咻嘿咻嘿咻...',
     })
     var that = this;
     wx.request({
@@ -54,9 +59,16 @@ Page({
        wx.hideLoading();
        wx.stopPullDownRefresh();
        wx.showToast({
-         title: '刷新成功！',
+         title: '吧唧！',
          icon:'none'
        })
+      },
+      fail(res){
+        wx.hideLoading();
+        wx.showToast({
+          title: '啊咧？！好像没连上网ORZ',
+          icon:'none'
+        })
       }
     })
   },

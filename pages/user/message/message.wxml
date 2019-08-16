@@ -32,7 +32,7 @@
     </text>
   </view>
     <!-- type为1表示举报结果通知 -->
-  <view wx:if="{{item.type===1}}" class='messageCard' data-publishid="{{item.remark.publishid}}" bindtap="topublishdetails">
+  <view wx:if="{{item.type===1}}" class='messageCard' data-publishid="{{item.remark.publishid}}">
     <view wx:if="{{!item.hasRead}}" class='unreadtag'></view>
     <view class='title'>
       {{item.title}}

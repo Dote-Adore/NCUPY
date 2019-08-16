@@ -1,7 +1,7 @@
 <view class='userinfo' style="background-color:{{maincolor}}">
   <view class ='nickname' id='limitLine-1'>{{userInfoInWechat.nickName}}</view>
   <text class = 'area'>{{areaArr[userInfoInDB.area]}}</text>
-  <text wx:if='{{userInfoInDB.area===null}}' class = 'area'>你还没有填写地区哦~</text>
+  <text wx:if='{{!(userInfoInDB.area>=0)}}' class = 'area'>你还没有填写地区哦~</text>
   <view class="pricenum" decode="{{true}}" >哇哦！你已经在这里赚了{{sellingTotalPrice}}元</view>
   <image src='{{userInfoInWechat.avatarUrl}}' mode ='aspectFill' class="avatar"></image>
   <!-- <view class='follow-follower'>
@@ -32,6 +32,6 @@
   </view>
 </view>
 <view class="aboutBtn">
+  <button id='feedbackBtn' bindtap="toAbout" >关于</button>
   <button id='feedbackBtn' open-type="feedback" >意见反馈</button>
-  <button id='feedbackBtn' bindtap="toAbout" >南大咸鱼</button>
 </view>

@@ -1,5 +1,5 @@
 .show-btn {
-  margin-top: 100rpx;
+  margin-top: 0rpx;
   color: #22cc22;
 }
  
@@ -20,7 +20,7 @@
   width: 540rpx;
   overflow: hidden;
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 0;
   z-index: 9999;
   background: #f9f9f9;

@@ -2,6 +2,7 @@
   "usingComponents": {},
   "navigationBarTitleText": "加载中....",
   "navigationBarTextStyle": "black",
-  "navigationBarBackgroundColor": "#FFFFFF"
+  "navigationBarBackgroundColor": "#FFFFFF",
+    "enablePullDownRefresh": false
 
 }
