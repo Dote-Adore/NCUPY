@@ -29,7 +29,7 @@
     <view class="commentsTitle">留言</view>
     <view class="divLine"></view>
     <!-- 如果评论为空 -->
-    <view wx:if="{{!commentarr[0]}}" class='defaultComments'><view><image style="width:110px;text-align:center" src="/resoures/icon/sofa.png" mode='widthFix'></image></view>沙发没人坐呢，快坐下来唠唠嗑~</view>
+    <view wx:if="{{!commentarr[0]}}" class='defaultComments'><view><image style="width:110px" src="/resoures/icon/sofa.png" mode='widthFix'></image></view>沙发没人坐呢，快坐下来唠唠嗑~</view>
     <block wx:for="{{commentarr}}" wx:key="{{item.id}}">
     <!-- 第一层评论 -->
       <view wx:if="{{item.respid===0}}" data-item="{{item}}" bindlongtap="toDeleteComments" bindtap="toResponse" class="comment-class">

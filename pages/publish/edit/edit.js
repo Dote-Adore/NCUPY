@@ -11,7 +11,7 @@ Page({
     price: '',
     introduction: '',
     tags: {
-      choosentags: 0,
+      choosentags:[],
       classify: ''
     },
     tagarray: '',
@@ -60,20 +60,26 @@ Page({
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
       console.log(data);
       var choosentags = that.toArray(data.commontags);
-      console.log(choosentags);
+      for(let i = 0; i<choosentags.length; i++)
+        for(let j = 0; j < that.data.items.length;j++){
+          if (choosentags[i] === that.data.items[j].value){
+            that.data.tags.choosentags.push(that.data.items[j].name);
+            break;
+          }
+        }
       that.setData({
         price: data.price,
         publishid: data.id,
         introduction: data.introduction,
         tags: {
-          choosentags: choosentags,
+          choosentags: that.data.tags.choosentags,
           classify: {
             index: data.categoryid,
             value: that.data.categories[data.categoryid]
 
           }
         },
-        tagarray: data.commontags,
+        tagarray: choosentags,
         userid: data.userid
       })
     });
